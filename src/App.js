@@ -1,26 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import MainMenu from './components/MainMenu'
+import Home from './components/Intro'
+import About from './components/About'
+import Info from './components/Info'
+import Svg from './components/Svg'
+import Svg2 from './components/Svg2'
+import Echelle from './components/Echelle'
+import Tooltip from './components/Tooltip'
+
 import './App.css';
 
 class App extends Component {
+  onRouteChanged() {
+    console.log("ROUTE CHANGED");
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <MainMenu/>
+            <p>
+              Meetup JS Don't Panic - 14 novembre 2018
+            </p>
+          </header>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/info" component={Info} />
+            <Route exact path="/svg" component={Svg}/>
+            <Route exact path="/svg2" component={Svg2}/>
+            <Route exact path="/echelle" component={Echelle}/>
+            <Route exact path="/bulle" component={Tooltip}/>
+          <div>
+          </div>
+        </div>
+      </Router>
     );
   }
 }
