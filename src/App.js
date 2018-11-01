@@ -8,6 +8,7 @@ import Svg from './components/Svg'
 import Svg2 from './components/Svg2'
 import Echelle from './components/Echelle'
 import Tooltip from './components/Tooltip'
+import Chart from './components/Chart'
 
 import './App.css';
 
@@ -33,6 +34,7 @@ class App extends Component {
             <Route exact path="/svg2" component={Svg2}/>
             <Route exact path="/echelle" component={Echelle}/>
             <Route exact path="/bulle" component={Tooltip}/>
+            <Route exact path="/react-barchart" component={Chart}/>
           <div>
           </div>
         </div>

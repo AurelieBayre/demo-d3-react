@@ -50,7 +50,7 @@ export default () => (
           height={height - y(d.niveau)}
         />
       )}
-      )}
+    )}
       
     </svg>
     

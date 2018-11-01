@@ -24,6 +24,9 @@ const MainMenu = () => {
     <Link to="/bulle">
       <button>bulle info</button>
     </Link>
+    <Link to="/react-barchart">
+      <button>react barchart</button>
+    </Link>
     
   </div>
 }

@@ -33,6 +33,10 @@ export default () => (
           x={x(i)}
           y={y(d)}
           width={x.bandwidth()}
+          /*
+            littéralement largeur de bande aka largeur de la barre. 
+            Elle est calculée en fonction du nombre d'items dans le dataset.
+          */
           height={height - y(d)}
         />
       )}
