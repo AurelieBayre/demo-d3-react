@@ -23,6 +23,7 @@ export default class Dashboard extends Component {
   render() {
     return (
       <div>
+        <h1>Premier Dashboard!</h1>
         <h2>Motivation : </h2>
         <div id={this.state.motivation.id}>
           <Reusable id={this.state.motivation.id} data={this.state.motivation.data} width={this.state.motivation.width} height={this.state.motivation.height} color={this.state.motivation.color}/>
