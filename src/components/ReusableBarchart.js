@@ -23,7 +23,7 @@ export default class Reusable extends Component {
       .attr('y', (d, i) => 300 - 10 * d)
       .attr('width', 65)
       .attr('height', (d, i) => d * 10)
-      .attr('fill', 'red')
+      .attr('fill', this.props.color)
   }
         
   render(){
