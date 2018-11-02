@@ -8,8 +8,20 @@ export default class Reusable extends Component {
     
   drawChart() {
     const data = this.props.data
-    
-    const svg = d3.select('#chartSpace')
+    const id = this.props.id
+    console.log("we get width: ", this.props.width)
+
+    const x = d3.scaleBand() 
+      .rangeRound([0, this.props.width]) 
+      .padding(0.1) 
+
+    const y = d3.scaleLinear()
+      .rangeRound([this.props.height, 0])
+
+    x.domain(data.map((d,i) => i))
+    y.domain([0, d3.max(data, d => d)])
+
+    const svg = d3.select(`#${id}`)
     .append('svg')
     .attr('width', this.props.width)
     .attr('height', this.props.height)
@@ -19,15 +31,15 @@ export default class Reusable extends Component {
       .data(data)
       .enter()
       .append('rect')
-      .attr('x', (d, i) => i * 70)
-      .attr('y', (d, i) => 300 - 10 * d)
-      .attr('width', 65)
-      .attr('height', (d, i) => d * 10)
+      .attr('x', (d, i)=> x(i))
+      .attr('y', (d, i) => y(d))
+      .attr('width', x.bandwidth())
+      .attr('height', (d, i) => this.props.height - y(d))
       .attr('fill', this.props.color)
   }
         
   render(){
-    return <div>Réutilisable avec des props</div>
+    return <h3>utilisation des props</h3>
   }
 }
     

@@ -10,6 +10,7 @@ import Echelle from './components/Echelle'
 import Tooltip from './components/Tooltip'
 import Chart from './components/Chart'
 import GenericBarchart from './components/GenericBarchart'
+import Dashboard from './components/Dashboard'
 
 import './App.css';
 
@@ -37,6 +38,7 @@ class App extends Component {
             <Route exact path="/bulle" component={Tooltip}/>
             <Route exact path="/react-barchart" component={Chart}/>
             <Route exact path="/reusable-react-barchart" component={GenericBarchart}/>
+            <Route exact path="/first-dashboard" component={Dashboard}/>
           <div>
           </div>
         </div>

@@ -30,6 +30,9 @@ const MainMenu = () => {
     <Link to="/reusable-react-barchart">
       <button>react barchart 2</button>
     </Link>
+    <Link to="/first-dashboard">
+      <button>dashboard 1</button>
+    </Link>
     
   </div>
 }
