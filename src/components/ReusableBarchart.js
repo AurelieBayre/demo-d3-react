@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
-class BarChart extends Component {
+export default class Reusable extends Component {
   componentDidMount() {
     this.drawChart();
   }
     
   drawChart() {
-    const data = [12, 5, 6, 6, 9, 10];
+    const data = this.props.data
     
     const svg = d3.select('#chartSpace')
     .append('svg')
-    .attr('width', 700)
-    .attr('height', 300)
-    .style('margin-left', 100);
+    .attr('width', this.props.width)
+    .attr('height', this.props.height)
+    .style('margin-left', 100)
                   
     svg.selectAll('rect')
       .data(data)
@@ -23,12 +23,11 @@ class BarChart extends Component {
       .attr('y', (d, i) => 300 - 10 * d)
       .attr('width', 65)
       .attr('height', (d, i) => d * 10)
-      .attr('fill', 'green')
+      .attr('fill', 'red')
   }
         
   render(){
-    return <div>Une autre façon</div>
+    return <div>Réutilisable avec des props</div>
   }
 }
     
-export default BarChart;

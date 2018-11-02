@@ -1,5 +1,5 @@
 import React from 'react'
-import * as d3 from "d3"
+import * as d3 from 'd3'
 
 //nos données:
 const data = [12, 5, 6, 6, 9, 10, 8] // tester en rajoutant des données pour voir comment le graphique s'adapte
@@ -29,7 +29,7 @@ export default () => (
       return (
         <rect
           key={i}
-          className="bar"
+          className='bar'
           x={x(i)}
           y={y(d)}
           width={x.bandwidth()}
