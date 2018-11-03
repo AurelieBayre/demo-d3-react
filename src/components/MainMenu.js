@@ -31,6 +31,9 @@ const MainMenu = () => {
       <Link to="/first-dashboard">
         <button>dashboard 1</button>
       </Link>
+      <Link to="/piechart">
+        <button>pie</button>
+      </Link>
     </div>
   );
 };

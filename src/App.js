@@ -10,6 +10,7 @@ import Tooltip from './components/Tooltip'
 import Chart from './components/Chart'
 import GenericBarchart from './components/GenericBarchart'
 import Dashboard from './components/Dashboard'
+import PieChartSpace from './components/PieChartSpace'
 
 import './App.css';
 
@@ -37,6 +38,7 @@ class App extends Component {
             <Route exact path="/react-barchart" component={Chart}/>
             <Route exact path="/reusable-react-barchart" component={GenericBarchart}/>
             <Route exact path="/first-dashboard" component={Dashboard}/>
+            <Route exact path="/piechart" component={PieChartSpace}/>
           <div>
           </div>
         </div>

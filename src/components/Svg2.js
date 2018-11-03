@@ -1,14 +1,13 @@
 import React from 'react';
-import Svg from './Svg'
+import Svg from './Svg';
 export default class Svg2 extends Svg {
-
   componentDidMount() {
     this.interval = setInterval(() => {
       const newArray = this.changeData();
       this.setState({data: newArray});
     }, 3000);
   }
-  
+
   componentWillUnmount() {
     clearInterval(this.interval);
   }
