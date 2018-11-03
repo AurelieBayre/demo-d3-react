@@ -6,39 +6,49 @@ export default class Svg extends Component {
     super(props);
     this.state = {
       data: [
-        {value: 12, color: '#000000'},
-        {value: 5, color: '#000000'},
-        {value: 6, color: '#000000'},
-        {value: 6, color: '#000000'},
-        {value: 9, color: '#000000'},
-        {value: 10, color: '#000000'},
-        {value: 8, color: '#000000'}
+        {value: 12, color: '#40DA00'},
+        {value: 5, color: '#C08503'},
+        {value: 6, color: '#006069'},
+        {value: 6, color: '#012450'},
+        {value: 9, color: '#123456'},
+        {value: 10, color: '#654321'},
+        {value: 8, color: '#AAFF00'}
       ]
     };
+    this.changeData = this.changeData.bind(this);
   }
-  getColor(arr) {
-    const dataWithRandomColors = arr.map(obj => {
-     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-     return {value: obj.value,
-            color: "#"+randomColor
-      }
-    })
-    return dataWithRandomColors;
-  };
-  
+
+  changeData() {
+    return [...this.state.data].map(obj => {
+      const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      return {
+        value: Math.random() * 10,
+        color: '#' + randomColor
+      };
+    });
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      const newArray = this.changeData();
+      this.setState({data: newArray});
+    }, 3000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   render() {
-    const newData = this.getColor(this.state.data);
     return (
       <div>
         <h1>Devinette : pourquoi obtient-on cela? </h1>
         <svg width="700" height="300">
-          {newData.map((d, i) => (
+          {this.state.data.map((d, i) => (
             <rect
               key={i}
               className="bar"
               x={i * 70}
-              y={d.value}
+              y={0}
               width={25}
               height={d.value * 10}
               fill={d.color}
