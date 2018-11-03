@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Intro = () => {
   return (
@@ -10,7 +10,7 @@ const Intro = () => {
       </h2>
       <p>durée: 20min</p>
     </div>
-  )
-}
+  );
+};
 
-export default Intro
+export default Intro;

@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import Reusable from './ReusableBarchart'
+import React, {Component} from 'react';
+import Reusable from './ReusableBarchart';
 
 export default class GenericBarchart extends Component {
   state = {
@@ -8,7 +8,7 @@ export default class GenericBarchart extends Component {
     height: 300,
     color: 'purple',
     id: 'basic'
-  }
+  };
 
   render() {
     return (
@@ -21,6 +21,6 @@ export default class GenericBarchart extends Component {
           color={this.state.color}
         />
       </div>
-    )
+    );
   }
 }

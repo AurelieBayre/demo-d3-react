@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 //import * as d3 from "d3";
 
 export default class Svg2 extends Component {
   render() {
-    const data = [12, 5, 6, 6, 9, 10, 8]
+    const data = [12, 5, 6, 6, 9, 10, 8];
     return (
       <div>
         <h1>Compter la hauteur à partir du bas</h1>
@@ -21,6 +21,6 @@ export default class Svg2 extends Component {
           ))}
         </svg>
       </div>
-    )
+    );
   }
 }

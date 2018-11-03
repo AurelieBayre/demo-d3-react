@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Info = () => {
   return (
@@ -20,7 +20,7 @@ const Info = () => {
         <li>Il calcule les proportions et les mises à l'échelle</li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Info
+export default Info;

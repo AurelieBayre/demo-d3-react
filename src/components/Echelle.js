@@ -1,22 +1,22 @@
-import React from 'react'
-import * as d3 from 'd3'
+import React from 'react';
+import * as d3 from 'd3';
 
-const data = [12, 5, 6, 6, 9, 10, 8, 5, 6, 6, 9, 10, 8] // tester en rajoutant des données pour voir comment le graphique s'adapte
+const data = [12, 5, 6, 6, 9, 10, 8, 5, 6, 6, 9, 10, 8]; // tester en rajoutant des données pour voir comment le graphique s'adapte
 
-const width = 700
-const height = 300
+const width = 700;
+const height = 300;
 
 // Attention voici les echelles ! On les définit pour chaque axe: x et y
 const x = d3
   .scaleBand() // définition du type d'échelle
   .rangeRound([0, width]) //définition des limites de l'échelle
-  .padding(0.1)
+  .padding(0.1);
 
-const y = d3.scaleLinear().rangeRound([height, 0])
+const y = d3.scaleLinear().rangeRound([height, 0]);
 
 // Et il faut relier les axes aux données:
-x.domain(data.map((d, i) => i))
-y.domain([0, d3.max(data, d => d)])
+x.domain(data.map((d, i) => i));
+y.domain([0, d3.max(data, d => d)]);
 
 export default () => (
   <div>
@@ -36,8 +36,8 @@ export default () => (
           */
             height={height - y(d)}
           />
-        )
+        );
       })}
     </svg>
   </div>
-)
+);

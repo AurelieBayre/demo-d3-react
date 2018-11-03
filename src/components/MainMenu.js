@@ -1,5 +1,5 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 const MainMenu = () => {
   return (
@@ -32,7 +32,7 @@ const MainMenu = () => {
         <button>dashboard 1</button>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default MainMenu
+export default MainMenu;

@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import Reusable from './ReusableBarchart'
+import React, {Component} from 'react';
+import Reusable from './ReusableBarchart';
 
 export default class Dashboard extends Component {
   state = {
@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
       height: 200,
       color: 'blue'
     }
-  }
+  };
 
   render() {
     return (
@@ -44,6 +44,6 @@ export default class Dashboard extends Component {
           />
         </div>
       </div>
-    )
+    );
   }
 }
