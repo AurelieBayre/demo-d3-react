@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as d3 from 'd3';
+import { scaleBand, scaleLinear, max, select}from 'd3';
 
 export default class Reusable extends Component {
   componentDidMount() {
@@ -10,18 +10,16 @@ export default class Reusable extends Component {
     const data = this.props.data;
     const id = this.props.id;
 
-    const x = d3
-      .scaleBand()
+    const x = scaleBand()
       .rangeRound([0, this.props.width])
       .padding(0.1);
 
-    const y = d3.scaleLinear().rangeRound([this.props.height, 0]);
+    const y = scaleLinear().rangeRound([this.props.height, 0]);
 
     x.domain(data.map((d, i) => i));
-    y.domain([0, d3.max(data, d => d)]);
+    y.domain([0, max(data, d => d)]);
 
-    const svg = d3
-      .select(`#${id}`)
+    const svg = select(`#${id}`)
       .append('svg')
       .attr('width', this.props.width)
       .attr('height', this.props.height)
