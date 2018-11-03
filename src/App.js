@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import MainMenu from './components/MainMenu'
 import Home from './components/Intro'
-import About from './components/About'
 import Info from './components/Info'
 import Svg from './components/Svg'
 import Svg2 from './components/Svg2'
@@ -30,7 +29,6 @@ class App extends Component {
             </p>
           </header>
             <Route exact path="/" component={Home} />
-            <Route exact path="/about" component={About} />
             <Route exact path="/info" component={Info} />
             <Route exact path="/svg" component={Svg}/>
             <Route exact path="/svg2" component={Svg2}/>
