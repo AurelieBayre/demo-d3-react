@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { scaleBand, scaleLinear, max, select}from 'd3';
+import { scaleBand, scaleLinear, max, select, event } from 'd3';
 
 export default class Reusable extends Component {
   componentDidMount() {
@@ -9,6 +9,10 @@ export default class Reusable extends Component {
   drawChart() {
     const data = this.props.data;
     const id = this.props.id;
+
+    const tooltip = select(`#${id}`)
+    .append('div')
+    .attr('class', 'tooltip')
 
     const x = scaleBand()
       .rangeRound([0, this.props.width])
@@ -34,7 +38,17 @@ export default class Reusable extends Component {
       .attr('y', (d, i) => y(d))
       .attr('width', x.bandwidth())
       .attr('height', (d, i) => this.props.height - y(d))
-      .attr('fill', this.props.color);
+      .attr('fill', this.props.color)
+      .on('mousemove', d => {		
+        tooltip
+            .style('position', 'absolute')
+            .style('display', 'inline-block')
+            .style('opacity', 0.9)		
+            .html(`<div>${d}</div>`)		
+        })					
+      .on("mouseout", function(d) {		
+        tooltip.style('display', 'none');	
+    });
   }
 
   render() {

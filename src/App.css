@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: rgb(211, 211, 211);
 }
 
 .App-header {
@@ -19,4 +20,8 @@
 
 #example {
   margin-top:2vh;
+}
+
+svg {
+  background-color: white;
 }
