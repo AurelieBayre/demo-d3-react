@@ -57,6 +57,6 @@ export default class Pie extends Component {
   }
 
   render() {
-    return <h3>the pie chart</h3>;
-  }
+     return <h3>Pie</h3>;
+   }
 }

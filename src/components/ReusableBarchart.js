@@ -38,6 +38,6 @@ export default class Reusable extends Component {
   }
 
   render() {
-    return <h3>utilisation des props</h3>;
+    return <h3>Barchart</h3>;
   }
 }
