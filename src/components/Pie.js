@@ -8,8 +8,9 @@ import {
   select
 } from 'd3';
 
-export default class Reusable extends Component {
+export default class Pie extends Component {
   componentDidMount() {
+    console.log(this.props)
     this.drawPieChart();
   }
 
@@ -33,7 +34,7 @@ export default class Reusable extends Component {
       .innerRadius(0)
       .outerRadius(Math.min(this.props.width, this.props.height) / 2 - 1);
 
-    const svg = select(`#${id}`)
+    const svg = select(`#pie-${id}`)
       .append('svg')
       .attr('width', this.props.width)
       .attr('height', this.props.height)
