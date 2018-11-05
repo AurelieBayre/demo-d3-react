@@ -47,10 +47,10 @@ export default class Svg extends Component {
             <rect
               key={i}
               className="bar"
-              x={i * 70}
+              x={i * 55}
               y={0}
-              width={25}
-              height={d.value * 10}
+              width={50}
+              height={d.value * 20}
               fill={d.color}
             />
           ))}

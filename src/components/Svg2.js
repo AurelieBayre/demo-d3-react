@@ -23,10 +23,10 @@ export default class Svg2 extends Svg {
             <rect
               key={i}
               className="bar"
-              x={i * 70}
-              y={300 - d.value * 10}
-              width={25}
-              height={d.value * 10}
+              x={i * 55}
+              y={300 - d.value * 20}
+              width={50}
+              height={d.value * 20}
               fill={d.color}
             />
           ))}
