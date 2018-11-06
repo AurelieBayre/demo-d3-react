@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { scaleBand, scaleLinear, max, select, event} from 'd3';
+import { scaleBand, scaleLinear, max, select, event, axisLeft, axisBottom} from 'd3';
 
 export default class Reusable extends Component {
   componentDidMount() {
@@ -25,12 +25,12 @@ export default class Reusable extends Component {
 
     const svg = select(id)
       .append('svg')
-      .attr('width', this.props.width)
-      .attr('height', this.props.height)
-      .style('margin-left', 100);
-
-    svg
-      .selectAll('rect')
+      .attr('width', this.props.width + 30)
+      .attr('height', this.props.height + 40)
+      .append('g')
+      .attr('transform', 'translate(20,10)')
+    
+    svg.selectAll('rect')
       .data(data)
       .enter()
       .append('rect')
@@ -43,13 +43,25 @@ export default class Reusable extends Component {
         .on('mousemove', (d, i)  => {		
           tooltip
               .style('position', 'absolute')
-              .style('left', `${event.pageX +10}px` )
-              .style('top', `${event.pageY}px`)
+              .style('left', `${event.pageX}px` )
+              .style('top', `${event.pageY}px`) //`${event.pageY}px`
               .style('display', 'inline-block')
               .style('opacity', 0.9)		
               .html(`<div>${d}</div>`)		
           })					
         .on("mouseout", () =>	tooltip.style('display', 'none'));
+
+      svg.append('g')
+        .attr('transform', 'translate(0,' + this.props.height + ')')
+        .attr('class', 'x-axis')
+
+      svg.append('g')
+        .attr('class', 'y-axis')
+
+      svg.select('.x-axis')
+          .call(axisBottom(x))
+      svg.select('.y-axis')
+          .call(axisLeft(y))
   }
 
   render() {
