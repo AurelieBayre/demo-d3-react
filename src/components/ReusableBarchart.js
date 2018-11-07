@@ -11,7 +11,7 @@ export default class Reusable extends Component {
 
   drawChart() {
     const data = this.props.data;
-    const id = `#${this.props.id}`;
+    const id = `#barchart-${this.props.id}`;
 
     const tooltip = select(id)
     .append('div')

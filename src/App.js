@@ -5,7 +5,7 @@ import Home from './components/Intro'
 import Info from './components/Info'
 import Svg from './components/Svg'
 import Svg2 from './components/Svg2'
-import Echelle from './components/Echelle'
+import Scale from './components/Scale'
 import Tooltip from './components/Tooltip'
 import Chart from './components/Chart'
 import GenericBarchart from './components/GenericBarchart'
@@ -33,7 +33,7 @@ class App extends Component {
             <Route exact path="/info" component={Info} />
             <Route exact path="/svg" component={Svg}/>
             <Route exact path="/svg2" component={Svg2}/>
-            <Route exact path="/echelle" component={Echelle}/>
+            <Route exact path="/echelle" component={Scale}/>
             <Route exact path="/bulle" component={Tooltip}/>
             <Route exact path="/react-barchart" component={Chart}/>
             <Route exact path="/reusable-react-barchart" component={GenericBarchart}/>

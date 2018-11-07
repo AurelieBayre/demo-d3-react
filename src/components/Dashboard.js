@@ -31,7 +31,7 @@ export default class Dashboard extends Component {
         </Row>
         <Row>
           <Col>
-            <div id={this.state.motivation.id}>
+            <div id={`barchart-${this.state.motivation.id}`}>
               <Reusable
                 id={this.state.motivation.id}
                 data={this.state.motivation.data}
@@ -57,7 +57,7 @@ export default class Dashboard extends Component {
         </Row>
         <Row>
           <Col>
-            <div id={this.state.activity.id}>
+            <div id={`barchart-${this.state.activity.id}`}>
               <Reusable
                 id={this.state.activity.id}
                 data={this.state.activity.data}
