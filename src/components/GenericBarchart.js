@@ -12,7 +12,7 @@ export default class GenericBarchart extends Component {
 
   render() {
     return (
-      <div id={`barchart-{this.state.id}`}>
+      <div id={`barchart-${this.state.id}`}>
         <Reusable
           id={this.state.id}
           data={this.state.data}
