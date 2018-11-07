@@ -1,3 +1,6 @@
+// pour le pageX pageY, lire https://stackoverflow.com/a/51114379
+//qui conseille de les mettre dans les props et pas dans le state
+
 import React, {Component} from 'react';
 import { scaleBand, scaleLinear, max, select, event, axisLeft, axisBottom} from 'd3';
 
@@ -44,7 +47,7 @@ export default class Reusable extends Component {
           tooltip
               .style('position', 'absolute')
               .style('left', `${event.pageX}px` )
-              .style('top', `${event.pageY}px`) //`${event.pageY}px`
+              .style('top', `${event.pageY}px`) // essayer en passant le event.pageY depuis App? 
               .style('display', 'inline-block')
               .style('opacity', 0.9)		
               .html(`<div>${d}</div>`)		
