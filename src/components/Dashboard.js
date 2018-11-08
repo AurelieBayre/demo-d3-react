@@ -78,6 +78,7 @@ export default class Dashboard extends Component {
             </div>
           </Col>
         </Row>
+        <div id="tooltip" className="tooltip"></div>
       </Container>
     );
   }

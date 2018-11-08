@@ -13,9 +13,7 @@ export default class Reusable extends Component {
     const data = this.props.data;
     const id = `#barchart-${this.props.id}`;
 
-    const tooltip = select(id)
-    .append('div')
-    .attr('class', 'tooltip')
+    const tooltip = select("#tooltip")
 
     const x = scaleBand()
       .rangeRound([0, this.props.width])
@@ -46,11 +44,11 @@ export default class Reusable extends Component {
         .on('mousemove', (d, i)  => {		
           tooltip
               .style('position', 'absolute')
-              .style('left', `${event.pageX}px` )
-              .style('top', `${event.pageY}px`) // essayer en passant le event.pageY depuis App? 
+              .style('left', `${event.clientX}px` )
+              .style('top', `${event.clientY}px`) // essayer en passant le event.pageY depuis App? 
               .style('display', 'inline-block')
               .style('opacity', 0.9)		
-              .html(`<div>${d}</div>`)		
+              .html(`<div> Valeur : ${d}</div>`)		
           })					
         .on("mouseout", () =>	tooltip.style('display', 'none'));
 
