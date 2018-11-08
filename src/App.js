@@ -15,8 +15,14 @@ import PieChartSpace from './components/PieChartSpace'
 import './App.css';
 
 class App extends Component {
+
   onRouteChanged() {
     console.log("ROUTE CHANGED");
+  }
+
+  onArrowRight(e) {
+    console.log("key :", e)
+    //this.setState({toSvg2: true})
   }
 
   render() {

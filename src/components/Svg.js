@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Redirect } from 'react-router-dom'
 // Exemple juste avec react, sans D3:
 
 export default class Svg extends Component {
@@ -13,9 +14,17 @@ export default class Svg extends Component {
         {value: 9, color: '#123456'},
         {value: 10, color: '#654321'},
         {value: 8, color: '#AAFF00'}
-      ]
+      ],
+      toSvg2 : false
     };
     this.changeData = this.changeData.bind(this);
+  }
+
+  onArrowRight(e) {
+    console.log("KEY!   ", e.keyCode);
+    if (e.keyCode === 39) {
+      this.setState({toSvg2: true})
+    }
   }
 
   changeData() {
@@ -39,8 +48,13 @@ export default class Svg extends Component {
   }
 
   render() {
+
+    if (this.state.toSvg2 === true) {
+      return <Redirect to='/svg2' />
+    }
+
     return (
-      <div>
+      <div onKeyDown={(e) => this.onArrowRight(e)} tabIndex="0">
         <h1>Devinette : pourquoi obtient-on cela? </h1>
         <svg width="700" height="300">
           {this.state.data.map((d, i) => (
