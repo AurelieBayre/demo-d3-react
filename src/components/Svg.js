@@ -15,15 +15,20 @@ export default class Svg extends Component {
         {value: 10, color: '#654321'},
         {value: 8, color: '#AAFF00'}
       ],
-      toSvg2 : false
+      toInfo: false,
+      toSvg2: false,
+      toEchelle: false
     };
     this.changeData = this.changeData.bind(this);
   }
 
-  onArrowRight(e) {
+  onArrowRightOrLeft(e) {
     console.log("KEY!   ", e.keyCode);
     if (e.keyCode === 39) {
       this.setState({toSvg2: true})
+    }
+    if (e.keyCode === 37) {
+      this.setState({toInfo: true})
     }
   }
 
@@ -52,9 +57,12 @@ export default class Svg extends Component {
     if (this.state.toSvg2 === true) {
       return <Redirect to='/svg2' />
     }
+    if (this.state.toInfo === true) {
+      return <Redirect to="/info" />
+    }
 
     return (
-      <div onKeyDown={(e) => this.onArrowRight(e)} tabIndex="0">
+      <div onKeyDown={(e) => this.onArrowRightOrLeft(e)} tabIndex="0">
         <h1>Devinette : pourquoi obtient-on cela? </h1>
         <svg width="700" height="300">
           {this.state.data.map((d, i) => (

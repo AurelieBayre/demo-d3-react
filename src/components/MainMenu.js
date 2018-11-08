@@ -16,23 +16,17 @@ const MainMenu = () => {
       <Link to="/svg2">
         <button>svg 2</button>
       </Link>
-      <Link to="/echelle">
-        <button>echelles</button>
+      <Link to="/scale">
+        <button>echelle</button>
       </Link>
-      <Link to="/bulle">
-        <button>bulle info</button>
-      </Link>
-      <Link to="/react-barchart">
-        <button>react barchart</button>
-      </Link>
-      <Link to="/reusable-react-barchart">
-        <button>react barchart 2</button>
-      </Link>
-      <Link to="/first-dashboard">
-        <button>dashboard 1</button>
+      <Link to="/barchart">
+        <button>barchart</button>
       </Link>
       <Link to="/piechart">
         <button>pie</button>
+      </Link>
+      <Link to="/dashboard">
+        <button>dashboard</button>
       </Link>
     </div>
   );

@@ -6,8 +6,6 @@ import Info from './components/Info'
 import Svg from './components/Svg'
 import Svg2 from './components/Svg2'
 import Scale from './components/Scale'
-import Tooltip from './components/Tooltip'
-import Chart from './components/Chart'
 import GenericBarchart from './components/GenericBarchart'
 import Dashboard from './components/Dashboard'
 import PieChartSpace from './components/PieChartSpace'
@@ -15,14 +13,22 @@ import PieChartSpace from './components/PieChartSpace'
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      toHome: false,
+      toInfo: false,
+      toSvg: false,
+      toSvg2: false,
+      toScale: false,
+      toBarchart: false,
+      toPiechart: false,
+      toDashboard: false
+    }
+  }
 
   onRouteChanged() {
     console.log("ROUTE CHANGED");
-  }
-
-  onArrowRight(e) {
-    console.log("key :", e)
-    //this.setState({toSvg2: true})
   }
 
   render() {
@@ -39,12 +45,10 @@ class App extends Component {
             <Route exact path="/info" component={Info} />
             <Route exact path="/svg" component={Svg}/>
             <Route exact path="/svg2" component={Svg2}/>
-            <Route exact path="/echelle" component={Scale}/>
-            <Route exact path="/bulle" component={Tooltip}/>
-            <Route exact path="/react-barchart" component={Chart}/>
-            <Route exact path="/reusable-react-barchart" component={GenericBarchart}/>
-            <Route exact path="/first-dashboard" component={Dashboard}/>
+            <Route exact path="/scale" component={Scale}/>
+            <Route exact path="/barchart" component={GenericBarchart}/>
             <Route exact path="/piechart" component={PieChartSpace}/>
+            <Route exact path="/dashboard" component={Dashboard}/>
           <div>
           </div>
         </div>
