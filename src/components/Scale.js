@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import {scaleBand, scaleLinear, max} from 'd3';
 
-// Attention voici les echelles ! On les définit pour chaque axe: x et y
-// définition du type d'échelle
-//définition des limites de l'échelle
-
-// Et il faut relier les axes aux données:
-
 export default class Scale extends Component {
   constructor(props) {
     super(props);

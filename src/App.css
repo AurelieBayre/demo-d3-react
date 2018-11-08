@@ -17,12 +17,26 @@ body {
   color: white;
 }
 
+.App-header .contact {
+  text-align: right;
+  width: 100%;
+  margin-right: 2em;
+}
+
+.App-header .contact .name {
+  font-size: 2em;
+}
+
+.App-header .contact .promote {
+  font-size: 2em;
+}
+
 .App-link {
   color: #61dafb;
 }
 
 #example {
-  margin-top:2vh;
+  margin-top: 2vh;
 }
 
 svg {

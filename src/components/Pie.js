@@ -10,7 +10,6 @@ import {
 
 export default class Pie extends Component {
   componentDidMount() {
-    console.log(this.props)
     this.drawPieChart();
   }
 
@@ -36,15 +35,14 @@ export default class Pie extends Component {
 
     const svg = select(`#pie-${id}`)
       .append('svg')
-      .attr('width', this.props.width +40) 
-      .attr('height', this.props.height + 40)
-    
+      .attr('width', this.props.width + 40)
+      .attr('height', this.props.height + 40);
 
     const g = svg
       .append('g')
       .attr(
         'transform',
-        `translate(${this.props.width / 2 + 20},${this.props.height / 2 +20})`
+        `translate(${this.props.width / 2 + 20},${this.props.height / 2 + 20})`
       );
 
     g.selectAll('path')
@@ -57,6 +55,6 @@ export default class Pie extends Component {
   }
 
   render() {
-     return <h3>Pie</h3>;
-   }
+    return <h3>Pie</h3>;
+  }
 }

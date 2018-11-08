@@ -1,8 +1,13 @@
-// pour le pageX pageY, lire https://stackoverflow.com/a/51114379
-//qui conseille de les mettre dans les props et pas dans le state
-
 import React, {Component} from 'react';
-import { scaleBand, scaleLinear, max, select, event, axisLeft, axisBottom} from 'd3';
+import {
+  scaleBand,
+  scaleLinear,
+  max,
+  select,
+  event,
+  axisLeft,
+  axisBottom
+} from 'd3';
 
 export default class Reusable extends Component {
   componentDidMount() {
@@ -13,7 +18,7 @@ export default class Reusable extends Component {
     const data = this.props.data;
     const id = `#barchart-${this.props.id}`;
 
-    const tooltip = select("#tooltip")
+    const tooltip = select('#tooltip');
 
     const x = scaleBand()
       .rangeRound([0, this.props.width])
@@ -29,9 +34,10 @@ export default class Reusable extends Component {
       .attr('width', this.props.width + 30)
       .attr('height', this.props.height + 40)
       .append('g')
-      .attr('transform', 'translate(20,10)')
-    
-    svg.selectAll('rect')
+      .attr('transform', 'translate(20,10)');
+
+    svg
+      .selectAll('rect')
       .data(data)
       .enter()
       .append('rect')
@@ -41,28 +47,26 @@ export default class Reusable extends Component {
       .attr('height', (d, i) => this.props.height - y(d))
       .attr('fill', this.props.color)
       .attr('class', 'rectangle')
-        .on('mousemove', (d, i)  => {		
-          tooltip
-              .style('position', 'absolute')
-              .style('left', `${event.clientX}px` )
-              .style('top', `${event.clientY}px`) // essayer en passant le event.pageY depuis App? 
-              .style('display', 'inline-block')
-              .style('opacity', 0.9)		
-              .html(`<div> Valeur : ${d}</div>`)		
-          })					
-        .on("mouseout", () =>	tooltip.style('display', 'none'));
+      .on('mousemove', (d, i) => {
+        tooltip
+          .style('position', 'absolute')
+          .style('left', `${event.clientX}px`)
+          .style('top', `${event.clientY}px`) // essayer en passant le event.pageY depuis App?
+          .style('display', 'inline-block')
+          .style('opacity', 0.9)
+          .html(`<div> Valeur : ${d}</div>`);
+      })
+      .on('mouseout', () => tooltip.style('display', 'none'));
 
-      svg.append('g')
-        .attr('transform', 'translate(0,' + this.props.height + ')')
-        .attr('class', 'x-axis')
+    svg
+      .append('g')
+      .attr('transform', 'translate(0,' + this.props.height + ')')
+      .attr('class', 'x-axis');
 
-      svg.append('g')
-        .attr('class', 'y-axis')
+    svg.append('g').attr('class', 'y-axis');
 
-      svg.select('.x-axis')
-          .call(axisBottom(x))
-      svg.select('.y-axis')
-          .call(axisLeft(y))
+    svg.select('.x-axis').call(axisBottom(x));
+    svg.select('.y-axis').call(axisLeft(y));
   }
 
   render() {
