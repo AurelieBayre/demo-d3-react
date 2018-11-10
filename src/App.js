@@ -21,32 +21,30 @@ class App extends Component {
     super(props);
     this.state = {
       pages: [
-        ["", true],
-        ["info", false],
-        ["svg", false],
-        ["svg2", false],
-        ["scale", false],
-        ["barchart", false],
-        ["piechart", false],
-        ["dashboard", false]
+        ['', true],
+        ['info', false],
+        ['svg', false],
+        ['svg2', false],
+        ['scale', false],
+        ['barchart', false],
+        ['piechart', false],
+        ['dashboard', false]
       ]
     };
   }
 
-  onRouteChanged() {
-    console.log('ROUTE CHANGED');
-  }
+  // onRouteChanged() {
+  //   console.log('ROUTE CHANGED');
+  // }
 
   navigation(e) {
     const pages = this.state.pages;
     const newPages = arrowNavigator(e, pages);
-    console.log("change pages: ", newPages)
     return newPages;
   }
 
   componentDidMount() {
     document.addEventListener('keydown', e => {
-      console.log("nagigation !", e.keycode)
       const newPages = this.navigation(e);
       this.setState({pages: newPages});
     });
@@ -67,14 +65,46 @@ class App extends Component {
               </Col>
             </Row>
           </header>
-          <Route exact path="/" render={()=><Home pages={this.state.pages}/>} />
-          <Route exact path="/info" render={()=><Info pages={this.state.pages}/>} />
-          <Route exact path="/svg" render={()=><Svg pages={this.state.pages}/>} />
-          <Route exact path="/svg2" render={()=><Svg2 pages={this.state.pages}/>} />
-          <Route exact path="/scale" render={()=><Scale pages={this.state.pages}/>} />
-          <Route exact path="/barchart" render={()=><GenericBarchart pages={this.state.pages}/>} />
-          <Route exact path="/piechart" render={()=><PieChartSpace pages={this.state.pages}/>} />
-          <Route exact path="/dashboard" render={()=><Dashboard pages={this.state.pages}/>} />
+          <Route
+            exact
+            path="/"
+            render={() => <Home pages={this.state.pages} />}
+          />
+          <Route
+            exact
+            path="/info"
+            render={() => <Info pages={this.state.pages} />}
+          />
+          <Route
+            exact
+            path="/svg"
+            render={() => <Svg pages={this.state.pages} />}
+          />
+          <Route
+            exact
+            path="/svg2"
+            render={() => <Svg2 pages={this.state.pages} />}
+          />
+          <Route
+            exact
+            path="/scale"
+            render={() => <Scale pages={this.state.pages} />}
+          />
+          <Route
+            exact
+            path="/barchart"
+            render={() => <GenericBarchart pages={this.state.pages} />}
+          />
+          <Route
+            exact
+            path="/piechart"
+            render={() => <PieChartSpace pages={this.state.pages} />}
+          />
+          <Route
+            exact
+            path="/dashboard"
+            render={() => <Dashboard pages={this.state.pages} />}
+          />
           <div />
         </div>
       </Router>
