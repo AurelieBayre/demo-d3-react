@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
+
 // Exemple juste avec react, sans D3:
 
 export default class Svg extends Component {
@@ -19,15 +20,6 @@ export default class Svg extends Component {
     this.changeData = this.changeData.bind(this);
   }
 
-  onArrowRightOrLeft(e) {
-    console.log('KEY!   ', e.keyCode);
-    if (e.keyCode === 39) {
-      this.setState({toSvg2: true});
-    }
-    if (e.keyCode === 37) {
-      this.setState({toInfo: true});
-    }
-  }
 
   changeData() {
     return [...this.state.data].map(obj => {
@@ -40,6 +32,11 @@ export default class Svg extends Component {
   }
 
   componentDidMount() {
+    // document.addEventListener('keydown', e => {
+    //   const newPage = this.onArrowRightOrLeft(e, 'toInfo', 'toSvg2');
+    //   this.setState(newPage);
+    // });
+
     this.interval = setInterval(() => {
       const newArray = this.changeData();
       this.setState({data: newArray});
@@ -47,13 +44,19 @@ export default class Svg extends Component {
   }
   componentWillUnmount() {
     clearInterval(this.interval);
+    document.removeEventListener('keydown', this.onArrowRightOrLeft);
+    this.setState({
+      toInfo: false,
+      toSvg2: false
+    });
   }
 
   render() {
-    if (this.state.toSvg2 === true) {
+    console.log('Props', this.props);
+    if (this.props.toSvg2 === true) {
       return <Redirect to="/svg2" />;
     }
-    if (this.state.toInfo === true) {
+    if (this.props.toInfo === true) {
       return <Redirect to="/info" />;
     }
 

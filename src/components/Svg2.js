@@ -2,8 +2,6 @@ import React from 'react';
 import Svg from './Svg';
 
 import {Redirect} from 'react-router-dom';
-
-import arrowNavigator from './arrowNavigator';
 export default class Svg2 extends Svg {
   componentDidMount() {
     this.interval = setInterval(() => {
@@ -17,17 +15,17 @@ export default class Svg2 extends Svg {
   }
 
   render() {
-    if (this.state.toSvg === true) {
+    if (this.props.toSvg === true) {
       return <Redirect to="/svg" />;
     }
-    if (this.state.toEchelle === true) {
+    if (this.props.toEchelle === true) {
       return <Redirect to="/scale" />;
     }
 
     return (
       <div
-        onKeyDown={e => this.setState(arrowNavigator(e, 'toSvg', 'toEchelle'))}
-        tabIndex="0"
+        // onKeyDown={e => this.setState(arrowNavigator(e, 'toSvg', 'toEchelle'))}
+        // tabIndex="0"
       >
         <h1>Compter la hauteur à partir du bas</h1>
         <h2>hauteur du SVG - hauteur de la barre</h2>

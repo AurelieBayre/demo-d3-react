@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Row, Col} from 'reactstrap';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+import {arrowNavigator} from './modules/arrowNavigator';
+
 import Contact from './components/Contact';
 import Home from './components/Home';
 import Info from './components/Info';
@@ -17,19 +20,36 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toHome: false,
-      toInfo: false,
-      toSvg: false,
-      toSvg2: false,
-      toScale: false,
-      toBarchart: false,
-      toPiechart: false,
-      toDashboard: false
+      pages: [
+        ["", true],
+        ["info", false],
+        ["svg", false],
+        ["svg2", false],
+        ["scale", false],
+        ["barchart", false],
+        ["piechart", false],
+        ["dashboard", false]
+      ]
     };
   }
 
   onRouteChanged() {
     console.log('ROUTE CHANGED');
+  }
+
+  navigation(e) {
+    const pages = this.state.pages;
+    const newPages = arrowNavigator(e, pages);
+    console.log("change pages: ", newPages)
+    return newPages;
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', e => {
+      console.log("nagigation !", e.keycode)
+      const newPages = this.navigation(e);
+      this.setState({pages: newPages});
+    });
   }
 
   render() {
@@ -47,14 +67,14 @@ class App extends Component {
               </Col>
             </Row>
           </header>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/info" component={Info} />
-          <Route exact path="/svg" component={Svg} />
-          <Route exact path="/svg2" component={Svg2} />
-          <Route exact path="/scale" component={Scale} />
-          <Route exact path="/barchart" component={GenericBarchart} />
-          <Route exact path="/piechart" component={PieChartSpace} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/" render={()=><Home pages={this.state.pages}/>} />
+          <Route exact path="/info" render={()=><Info pages={this.state.pages}/>} />
+          <Route exact path="/svg" render={()=><Svg pages={this.state.pages}/>} />
+          <Route exact path="/svg2" render={()=><Svg2 pages={this.state.pages}/>} />
+          <Route exact path="/scale" render={()=><Scale pages={this.state.pages}/>} />
+          <Route exact path="/barchart" render={()=><GenericBarchart pages={this.state.pages}/>} />
+          <Route exact path="/piechart" render={()=><PieChartSpace pages={this.state.pages}/>} />
+          <Route exact path="/dashboard" render={()=><Dashboard pages={this.state.pages}/>} />
           <div />
         </div>
       </Router>
