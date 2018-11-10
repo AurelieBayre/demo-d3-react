@@ -1,7 +1,12 @@
 import React from 'react';
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
 
-const Info = () => {
-  return (
+const Info = (props) => {
+  const pages = props.pages;
+  const newPage = getNewPageInfo(pages)
+  const redirectToNewPage = toNewPage("info",newPage)
+
+    return redirectToNewPage ? redirectToNewPage : (
     <div>
       <h2>D3 = Data Driven Document</h2>
       <p>

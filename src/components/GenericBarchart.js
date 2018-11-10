@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Reusable from './ReusableBarchart';
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
+
 
 export default class GenericBarchart extends Component {
   state = {
@@ -11,7 +13,11 @@ export default class GenericBarchart extends Component {
   };
 
   render() {
-    return (
+    const pages = this.props.pages;
+    const newPage = getNewPageInfo(pages)
+    const redirectToNewPage = toNewPage("barchart",newPage)
+
+    return redirectToNewPage ? redirectToNewPage : (
       <div id={`barchart-${this.state.id}`}>
         <Reusable
           id={this.state.id}

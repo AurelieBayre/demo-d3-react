@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
+
 
 // Exemple juste avec react, sans D3:
 
@@ -52,15 +53,11 @@ export default class Svg extends Component {
   }
 
   render() {
-    console.log('Props', this.props);
-    if (this.props.toSvg2 === true) {
-      return <Redirect to="/svg2" />;
-    }
-    if (this.props.toInfo === true) {
-      return <Redirect to="/info" />;
-    }
-
-    return (
+    const pages = this.props.pages;
+    const newPage = getNewPageInfo(pages)
+    const redirectToNewPage = toNewPage("svg",newPage)
+  
+      return redirectToNewPage ? redirectToNewPage : (
       <div onKeyDown={e => this.onArrowRightOrLeft(e)} tabIndex="0">
         <h1>Devinette : pourquoi obtient-on cela? </h1>
         <svg width="700" height="300">

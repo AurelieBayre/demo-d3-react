@@ -11,8 +11,8 @@ import Svg from './components/Svg';
 import Svg2 from './components/Svg2';
 import Scale from './components/Scale';
 import GenericBarchart from './components/GenericBarchart';
-import Dashboard from './components/Dashboard';
 import PieChartSpace from './components/PieChartSpace';
+import Dashboard from './components/Dashboard';
 
 import './App.css';
 

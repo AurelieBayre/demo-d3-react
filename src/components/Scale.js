@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {scaleBand, scaleLinear, max} from 'd3';
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
+
 
 export default class Scale extends Component {
   constructor(props) {
@@ -45,7 +47,11 @@ export default class Scale extends Component {
     y.domain([0, max(data, d => d.value)]);
     console.log('data in Echelle', data);
 
-    return (
+    const pages = this.props.pages;
+    const newPage = getNewPageInfo(pages)
+    const redirectToNewPage = toNewPage("scale",newPage)
+
+    return redirectToNewPage ? redirectToNewPage : (
       <div>
         <h1>Les échelles</h1>
         <form onSubmit={e => this.addData(e)}>

@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
+
 import Pie from './Pie';
 
 export default class GenericBarchart extends Component {
@@ -10,7 +13,11 @@ export default class GenericBarchart extends Component {
   };
 
   render() {
-    return (
+    const pages = this.props.pages;
+    const newPage = getNewPageInfo(pages)
+    const redirectToNewPage = toNewPage("piechart",newPage)
+
+    return redirectToNewPage ? redirectToNewPage : (
       <div id={`pie-${this.state.id}`}>
         <Pie
           id={this.state.id}

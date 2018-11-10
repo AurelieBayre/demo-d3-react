@@ -1,7 +1,8 @@
 import React from 'react';
 import Svg from './Svg';
 
-import {Redirect} from 'react-router-dom';
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
+
 export default class Svg2 extends Svg {
   componentDidMount() {
     this.interval = setInterval(() => {
@@ -15,14 +16,11 @@ export default class Svg2 extends Svg {
   }
 
   render() {
-    if (this.props.toSvg === true) {
-      return <Redirect to="/svg" />;
-    }
-    if (this.props.toEchelle === true) {
-      return <Redirect to="/scale" />;
-    }
+    const pages = this.props.pages;
+    const newPage = getNewPageInfo(pages)
+    const redirectToNewPage = toNewPage("svg2", newPage)
 
-    return (
+    return redirectToNewPage ? redirectToNewPage : (
       <div
         // onKeyDown={e => this.setState(arrowNavigator(e, 'toSvg', 'toEchelle'))}
         // tabIndex="0"

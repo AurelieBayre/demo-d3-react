@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
+
+
 import Reusable from './ReusableBarchart';
 import Pie from './Pie';
 
@@ -23,7 +26,11 @@ export default class Dashboard extends Component {
   };
 
   render() {
-    return (
+    const pages = this.props.pages;
+    const newPage = getNewPageInfo(pages)
+    const redirectToNewPage = toNewPage("dashboard",newPage)
+
+    return redirectToNewPage ? redirectToNewPage : (
       <Container>
         <h1>Premier Dashboard!</h1>
         <Row>
