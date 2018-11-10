@@ -53,6 +53,10 @@ const arrowNavigator = (e, arr) => {
       : subArr)
     return newArr;
   }
+  else{
+    // Pour n'importe quelle autre touche sinon bug!
+    return arr; 
+  }
 };
 
 export {currentIndex, getNewPageInfo, toNewPage, arrowNavigator};
