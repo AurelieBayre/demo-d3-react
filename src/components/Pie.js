@@ -21,6 +21,7 @@ export default class Pie extends Component {
       .sort(null)
       .value(d => d);
 
+    // D3 détermine les couleurs à partir des données sur une échelle:
     const color = scaleOrdinal()
       .domain(data.map((d, i) => i))
       .range(

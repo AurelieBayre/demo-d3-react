@@ -21,7 +21,7 @@ const Info = (props) => {
       </p>
       <ul>
         <li>D3 repose sur la techno SVG.</li>
-        <li>Il manipule le DOM.</li>
+        <li>Il intéragit avec le DOM.</li>
         <li>Il calcule les proportions et les mises à l'échelle</li>
       </ul>
     </div>

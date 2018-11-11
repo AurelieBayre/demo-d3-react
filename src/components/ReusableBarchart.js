@@ -58,6 +58,7 @@ export default class Reusable extends Component {
       })
       .on('mouseout', () => tooltip.style('display', 'none'));
 
+    // Représenter les axes X, Y
     svg.append('g')
       .attr('transform', 'translate(0,' + this.props.height + ')')
       .attr('class', 'x-axis');
