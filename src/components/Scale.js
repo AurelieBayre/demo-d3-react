@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import {Row, Col} from 'reactstrap';
 import {scaleBand, scaleLinear, max} from 'd3';
+
 import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
 import {svgLength, rectangleHeight} from '../modules/dimensionsCalculator';
 
@@ -58,30 +60,36 @@ export default class Scale extends Component {
       redirectToNewPage
     ) : (
       <div>
-        <h1>Les échelles</h1>
-        <form onSubmit={e => this.addData(e)}>
-          <div>
-            <label>Ajouter une valeur</label>
-          </div>
-          <button type="submit">Ajout</button>
-        </form>
-        <svg width={svgWidth} height={svgHeight}>
-          <g transform={`translate(${margin},${margin})`}>
-            {data.map((d, i) => {
-              return (
-                <rect
-                  key={i}
-                  className="bar"
-                  x={x(i)}
-                  y={y(d.value)}
-                  height={rectangleHeight(height, y(d.value))}
-                  width={x.bandwidth()}
-                  fill={d.color}
-                />
-              );
-            })}
-          </g>
-        </svg>
+        <h2>Les échelles</h2>
+        <Row>
+          <Col>
+            <svg width={svgWidth} height={svgHeight}>
+              <g transform={`translate(${margin},${margin})`}>
+                {data.map((d, i) => {
+                  return (
+                    <rect
+                      key={i}
+                      className="bar"
+                      x={x(i)}
+                      y={y(d.value)}
+                      height={rectangleHeight(height, y(d.value))}
+                      width={x.bandwidth()}
+                      fill={d.color}
+                    />
+                  );
+                })}
+              </g>
+            </svg>
+          </Col>
+          <Col xs="3">
+            <form onSubmit={e => this.addData(e)}>
+              <div>
+                <label>Ajouter une valeur</label>
+              </div>
+              <button type="submit">Ajout</button>
+            </form>
+          </Col>
+        </Row>
       </div>
     );
   }
