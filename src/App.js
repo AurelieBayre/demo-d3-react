@@ -75,6 +75,7 @@ class App extends Component {
           <Route exact path="/barchart" render={()=><GenericBarchart pages={this.state.pages}/>} />
           <Route exact path="/piechart" render={()=><PieChartSpace pages={this.state.pages}/>} />
           <Route exact path="/dashboard" render={()=><Dashboard pages={this.state.pages}/>} />
+          <div id="tooltip" className="tooltip" />
           </Container>
         </div>
       </Router>

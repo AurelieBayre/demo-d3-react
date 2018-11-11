@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {scaleBand, scaleLinear, max} from 'd3';
-import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
-
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
 
 export default class Scale extends Component {
   constructor(props) {
@@ -37,21 +36,24 @@ export default class Scale extends Component {
     const width = this.state.width;
     const height = this.state.height;
 
+    // Définition des axes avec calcul des proportions
     const x = scaleBand()
       .rangeRound([0, width])
       .padding(0.1);
 
     const y = scaleLinear().rangeRound([height, 0]);
 
+    // Connection des données aux axes
     x.domain(data.map((d, i) => i));
     y.domain([0, max(data, d => d.value)]);
-    console.log('data in Echelle', data);
 
     const pages = this.props.pages;
-    const newPage = getNewPageInfo(pages)
-    const redirectToNewPage = toNewPage("scale",newPage)
+    const newPage = getNewPageInfo(pages);
+    const redirectToNewPage = toNewPage('scale', newPage);
 
-    return redirectToNewPage ? redirectToNewPage : (
+    return redirectToNewPage ? (
+      redirectToNewPage
+    ) : (
       <div>
         <h1>Les échelles</h1>
         <form onSubmit={e => this.addData(e)}>

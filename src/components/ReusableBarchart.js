@@ -51,15 +51,14 @@ export default class Reusable extends Component {
         tooltip
           .style('position', 'absolute')
           .style('left', `${event.clientX}px`)
-          .style('top', `${event.clientY}px`) // essayer en passant le event.pageY depuis App?
+          .style('top', `${event.clientY}px`)
           .style('display', 'inline-block')
           .style('opacity', 0.9)
           .html(`<div> Valeur : ${d}</div>`);
       })
       .on('mouseout', () => tooltip.style('display', 'none'));
 
-    svg
-      .append('g')
+    svg.append('g')
       .attr('transform', 'translate(0,' + this.props.height + ')')
       .attr('class', 'x-axis');
 
