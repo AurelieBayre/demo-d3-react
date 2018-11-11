@@ -9,7 +9,6 @@ const getNewPageInfo = (arr) => {
     const newIndex = arr.findIndex(currentIndex);
     const page = arr[newIndex][0]
     const path = `/${page}`
-    console.log("page and path ", page, path)
     return {page, path}
 }
 
@@ -39,7 +38,6 @@ const colateralIndexes = (index, lastIndex) => {
 const arrowNavigator = (e, arr) => {
   const current = arr.findIndex(currentIndex);
   const previousAndNextIndex = colateralIndexes(current, arr.length - 1);
-  console.log("index, prrevious, next", currentIndex, previousAndNextIndex)
   
   if (e.keyCode === 39) {
     const newArr = arr.map((subArr,i) => i === current ? [subArr[0], false] 
