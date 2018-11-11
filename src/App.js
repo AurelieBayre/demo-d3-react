@@ -13,6 +13,7 @@ import Scale from './components/Scale';
 import GenericBarchart from './components/GenericBarchart';
 import PieChartSpace from './components/PieChartSpace';
 import Dashboard from './components/Dashboard';
+import DoughnutSpace from './components/DoughnutSpace';
 
 import './App.css';
 
@@ -93,6 +94,11 @@ class App extends Component {
               exact
               path="/dashboard"
               render={() => <Dashboard pages={this.state.pages} />}
+            />
+            <Route
+              exact
+              path="/doughnut"
+              render={() => <DoughnutSpace />}
             />
           </Container>
         </div>
