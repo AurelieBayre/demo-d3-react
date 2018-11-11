@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 
-import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
-
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
 
 import Reusable from './ReusableBarchart';
 import Pie from './Pie';
@@ -27,14 +26,17 @@ export default class Dashboard extends Component {
 
   render() {
     const pages = this.props.pages;
-    const newPage = getNewPageInfo(pages)
-    const redirectToNewPage = toNewPage("dashboard",newPage)
+    const newPage = getNewPageInfo(pages);
+    const redirectToNewPage = toNewPage('dashboard', newPage);
 
-    return redirectToNewPage ? redirectToNewPage : (
+    return redirectToNewPage ? (
+      redirectToNewPage
+    ) : (
       <Container>
-        <Row>
-          <h2>Motivation : </h2>
-        </Row>
+        <h2 className="text-center">
+          Motivation selon les jour de la semaine:
+        </h2>
+
         <Row>
           <Col>
             <div id={`barchart-${this.state.motivation.id}`}>
@@ -58,9 +60,9 @@ export default class Dashboard extends Component {
             </div>
           </Col>
         </Row>
-        <Row>
-          <h2>Activité : </h2>
-        </Row>
+
+        <h2>Temps passé par activité : </h2>
+
         <Row>
           <Col>
             <div id={`barchart-${this.state.activity.id}`}>
