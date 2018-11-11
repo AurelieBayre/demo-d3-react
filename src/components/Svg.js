@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
-import {svgLength, rectangleYPostition} from '../modules/dimensionsCalculator'
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
+import {svgLength} from '../modules/dimensionsCalculator';
 
 // Exemple juste avec react, sans D3:
 
@@ -19,6 +19,9 @@ export default class Svg extends Component {
       ]
     };
     this.changeData = this.changeData.bind(this);
+    this.margin = this.margin.bind(this);
+    this.svgWidth = this.svgWidth.bind(this);
+    this.svgHeight = this.svgHeight.bind(this);
   }
 
   changeData() {
@@ -31,15 +34,16 @@ export default class Svg extends Component {
     });
   }
 
-  svgMargin() {
-    return 20;
+  margin() {
+    return 40;
   }
+
   svgWidth() {
-    return svgLength(600, this.svgMargin());
+    return svgLength(600, this.margin());
   }
 
   svgHeight() {
-    return svgLength(300, this.svgMargin());
+    return svgLength(300, this.margin());
   }
 
   componentDidMount() {
@@ -48,7 +52,6 @@ export default class Svg extends Component {
       this.setState({data: newArray});
     }, 3000);
   }
-
 
   componentWillUnmount() {
     clearInterval(this.interval);
@@ -61,25 +64,27 @@ export default class Svg extends Component {
 
   render() {
     const pages = this.props.pages;
-    const newPage = getNewPageInfo(pages)
-    const redirectToNewPage = toNewPage("svg",newPage)
-  
-      return redirectToNewPage ? redirectToNewPage : (
+    const newPage = getNewPageInfo(pages);
+    const redirectToNewPage = toNewPage('svg', newPage);
+
+    return redirectToNewPage ? (
+      redirectToNewPage
+    ) : (
       <div onKeyDown={e => this.onArrowRightOrLeft(e)} tabIndex="0">
         <h2>Devinette : pourquoi obtient-on cela? </h2>
         <svg width={this.svgWidth()} height={this.svgHeight()}>
-          <g transform={`translate(${this.svgMargin()},${this.svgMargin()})`}>
-          {this.state.data.map((d, i) => (
-            <rect
-              key={i}
-              className="bar"
-              x={i * 55}
-              y={0}
-              width={50}
-              height={d.value * 20}
-              fill={d.color}
-            />
-          ))}
+          <g transform={`translate(${this.margin()},${this.margin()})`}>
+            {this.state.data.map((d, i) => (
+              <rect
+                key={i}
+                className="bar"
+                x={i * 55}
+                y={0}
+                width={50}
+                height={d.value * 20}
+                fill={d.color}
+              />
+            ))}
           </g>
         </svg>
       </div>

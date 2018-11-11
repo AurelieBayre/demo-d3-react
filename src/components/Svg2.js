@@ -1,8 +1,8 @@
 import React from 'react';
 import Svg from './Svg';
 
-import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
-
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
+import {rectangleYPostition} from '../modules/dimensionsCalculator';
 export default class Svg2 extends Svg {
   componentDidMount() {
     this.interval = setInterval(() => {
@@ -17,24 +17,28 @@ export default class Svg2 extends Svg {
 
   render() {
     const pages = this.props.pages;
-    const newPage = getNewPageInfo(pages)
-    const redirectToNewPage = toNewPage("svg2", newPage)
+    const newPage = getNewPageInfo(pages);
+    const redirectToNewPage = toNewPage('svg2', newPage);
 
-    return redirectToNewPage ? redirectToNewPage : (
+    return redirectToNewPage ? (
+      redirectToNewPage
+    ) : (
       <div>
         <h2>hauteur du SVG - hauteur de la barre</h2>
-        <svg width="700" height="300">
-          {this.state.data.map((d, i) => (
-            <rect
-              key={i}
-              className="bar"
-              x={i * 55}
-              y={300 - d.value * 20}
-              width={50}
-              height={d.value * 20}
-              fill={d.color}
-            />
-          ))}
+        <svg width={this.svgWidth()} height={this.svgHeight()}>
+          <g transform={`translate(${this.margin()},${this.margin()})`}>
+            {this.state.data.map((d, i) => (
+              <rect
+                key={i}
+                className="bar"
+                x={i * 55}
+                y={rectangleYPostition(300, d.value * 20)}
+                width={50}
+                height={d.value * 20}
+                fill={d.color}
+              />
+            ))}
+          </g>
         </svg>
       </div>
     );
