@@ -54,3 +54,11 @@ svg {
   transition: opacity 0.2s ease;
   text-align: center;
 }
+
+.motivation .rectangle:hover {
+  fill:rgb(143, 210, 164);
+}
+
+.activity .rectangle:hover {
+  fill:rgb(246, 131, 79);
+}

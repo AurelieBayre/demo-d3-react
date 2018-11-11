@@ -51,9 +51,9 @@ export default class Dashboard extends Component {
         </h2>
 
         <Row>
-          <Col>
+          <Col className="motivation">
             <div id={`barchart-${this.state.motivation.id}`}>
-              <Reusable className="motivation-barchart"
+              <Reusable
                 id={this.state.motivation.id}
                 data={this.state.motivation.data}
                 width={400}
@@ -76,7 +76,7 @@ export default class Dashboard extends Component {
 
         <h2>Temps passé par activité : </h2>
 
-        <Row>
+        <Row className="activity">
           <Col>
             <div id={`pie-${this.state.activity.id}`}>
               <Pie
