@@ -6,7 +6,13 @@ import Pie from './Pie';
 
 export default class GenericBarchart extends Component {
   state = {
-    data: [12, 5, 49, 6, 25, 10],
+    data: [{name: "codewars", value:20},
+    {name: "side project", value:30},
+    {name: "sport", value:10},
+    {name: "socialisation", value:10},
+    {name: "lecture", value:15},
+    {name: "cuisine", value:15}
+  ],
     width: 300,
     height: 300,
     id: 'pie'

@@ -5,7 +5,8 @@ import {
   quantize,
   interpolateSpectral,
   arc,
-  select
+  select,
+  event
 } from 'd3';
 
 export default class Pie extends Component {
@@ -17,13 +18,10 @@ export default class Pie extends Component {
     const data = this.props.data;
     const id = this.props.id;
 
-    const myPie = pie()
-      .sort(null)
-      .value(d => d);
+    const myPie = pie().value(d => d.value);
 
-    // D3 détermine les couleurs à partir des données sur une échelle:
+    // D3 détermine les couleurs sur une échelle:
     const color = scaleOrdinal()
-      .domain(data.map((d, i) => i))
       .range(
         quantize(t => interpolateSpectral(t * 0.8 + 0.1), data.length).reverse()
       );
@@ -46,16 +44,30 @@ export default class Pie extends Component {
         `translate(${this.props.width / 2 + 20},${this.props.height / 2 + 20})`
       );
 
+    const tooltip = select('#tooltip');
+
     g.selectAll('path')
       .data(arcs)
       .enter()
       .append('path')
       .attr('fill', (d, i) => color(i))
       .attr('stroke', 'white')
-      .attr('d', myArc);
+      .attr('d', myArc)
+      .on('mousemove', d => {
+        tooltip
+          .style('position', 'absolute')
+          .style('left', `${event.clientX}px`)
+          .style('top', `${event.clientY}px`)
+          .style('display', 'inline-block')
+          .style('opacity', 0.9)
+          .html(
+            `<div> <strong>${d.data.name}</strong><br />Valeur : ${d.data.value}</div>`
+          );
+      })
+      .on('mouseout', () => tooltip.style('display', 'none'));
   }
 
   render() {
-    return <h3>Pie</h3>;
+    return <h3>{this.props.title}</h3>;
   }
 }

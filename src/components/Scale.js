@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {scaleBand, scaleLinear, max} from 'd3';
 import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
+import {svgLength, rectangleHeight} from '../modules/dimensionsCalculator';
 
 export default class Scale extends Component {
   constructor(props) {
@@ -35,7 +36,9 @@ export default class Scale extends Component {
     const data = this.state.data;
     const width = this.state.width;
     const height = this.state.height;
-
+    const margin = 20;
+    const svgWidth = svgLength(width, margin);
+    const svgHeight = svgLength(height, margin);
     // Définition des axes avec calcul des proportions
     const x = scaleBand()
       .rangeRound([0, width])
@@ -62,20 +65,22 @@ export default class Scale extends Component {
           </div>
           <button type="submit">Ajout</button>
         </form>
-        <svg width={width} height={height}>
-          {data.map((d, i) => {
-            return (
-              <rect
-                key={i}
-                className="bar"
-                x={x(i)}
-                y={y(d.value)}
-                height={height - y(d.value)}
-                width={x.bandwidth()}
-                fill={d.color}
-              />
-            );
-          })}
+        <svg width={svgWidth} height={svgHeight}>
+          <g transform={`translate(${margin},${margin})`}>
+            {data.map((d, i) => {
+              return (
+                <rect
+                  key={i}
+                  className="bar"
+                  x={x(i)}
+                  y={y(d.value)}
+                  height={rectangleHeight(height, y(d.value))}
+                  width={x.bandwidth()}
+                  fill={d.color}
+                />
+              );
+            })}
+          </g>
         </svg>
       </div>
     );

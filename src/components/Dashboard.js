@@ -12,15 +12,15 @@ export default class Dashboard extends Component {
       id: 'motivation',
       data: [
         {name: 'Lundi', value: 65},
-        {name: 'Mardi', value: 60},
+        {name: 'Mardi', value: 50},
         {name: 'Mercredi', value: 100},
         {name: 'Jeudi', value: 85},
         {name: 'Vendredi', value: 70},
         {name: 'Samedi', value: 95},
         {name: 'Dimanche', value: 90}
       ],
-      color: 'red',
-      title: "Un autre titre"
+      color: 'rgb(209, 60, 75)',
+      title: "Variation de la motivation au cours de la semaine"
     },
     activity: {
       id: 'activity',
@@ -31,7 +31,7 @@ export default class Dashboard extends Component {
       {name: "lecture", value:15},
       {name: "cuisine", value:15}
     ],
-      color: 'blue',
+      color: 'rgb(66, 136, 181)',
       title: "Temps passé par activité"
     }
   };
