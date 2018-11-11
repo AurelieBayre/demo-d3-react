@@ -5,7 +5,7 @@ import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
 
 import Reusable from './ReusableBarchart';
 import Pie from './Pie';
-import Doughnut from './Doughnut'
+import Doughnut from './Doughnut';
 
 export default class Dashboard extends Component {
   state = {
@@ -21,19 +21,20 @@ export default class Dashboard extends Component {
         {name: 'Dimanche', value: 90}
       ],
       color: 'rgb(209, 60, 75)',
-      title: "Variation de la motivation au cours de la semaine"
+      title: 'Variation de la motivation au cours de la semaine'
     },
     activity: {
       id: 'activity',
-      data: [{name: "codewars", value:20},
-      {name: "side project", value:30},
-      {name: "sport", value:10},
-      {name: "socialisation", value:10},
-      {name: "lecture", value:15},
-      {name: "cuisine", value:15}
-    ],
+      data: [
+        {name: 'codewars', value: 20},
+        {name: 'side project', value: 30},
+        {name: 'sport', value: 10},
+        {name: 'socialisation', value: 10},
+        {name: 'lecture', value: 15},
+        {name: 'cuisine', value: 15}
+      ],
       color: 'rgb(66, 136, 181)',
-      title: "Temps passé par activité"
+      title: 'Temps passé par activité'
     }
   };
 
@@ -47,9 +48,8 @@ export default class Dashboard extends Component {
     ) : (
       <Container>
         <h2 className="text-center">
-          Motivation selon les jour de la semaine:
+          Motivation selon les jour de la semaine :
         </h2>
-
         <Row>
           <Col className="motivation">
             <div id={`barchart-${this.state.motivation.id}`}>
@@ -73,9 +73,7 @@ export default class Dashboard extends Component {
             </div>
           </Col>
         </Row>
-
         <h2>Temps passé par activité : </h2>
-
         <Row className="activity">
           <Col>
             <div id={`pie-${this.state.activity.id}`}>
@@ -91,7 +89,9 @@ export default class Dashboard extends Component {
             <div id={`barchart-${this.state.activity.id}`}>
               <Reusable
                 id={this.state.activity.id}
-                data={this.state.activity.data.sort((a,b)=> b.value - a.value)}
+                data={this.state.activity.data.sort(
+                  (a, b) => b.value - a.value
+                )}
                 width={400}
                 height={200}
                 color={this.state.activity.color}
