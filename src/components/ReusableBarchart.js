@@ -26,8 +26,8 @@ export default class Reusable extends Component {
 
     const y = scaleLinear().rangeRound([this.props.height, 0]);
 
-    x.domain(data.map((d, i) => i));
-    y.domain([0, max(data, d => d)]);
+    x.domain(data.map((d, i) => d.name));
+    y.domain([0, max(data, d => d.value)]);
 
     const svg = select(id)
       .append('svg')
@@ -41,10 +41,10 @@ export default class Reusable extends Component {
       .data(data)
       .enter()
       .append('rect')
-      .attr('x', (d, i) => x(i))
-      .attr('y', (d, i) => y(d))
+      .attr('x', (d, i) => x(d.name))
+      .attr('y', (d, i) => y(d.value))
       .attr('width', x.bandwidth())
-      .attr('height', (d, i) => this.props.height - y(d))
+      .attr('height', (d, i) => this.props.height - y(d.value))
       .attr('fill', this.props.color)
       .attr('class', 'rectangle')
       .on('mousemove', (d, i) => {
@@ -54,12 +54,19 @@ export default class Reusable extends Component {
           .style('top', `${event.clientY}px`)
           .style('display', 'inline-block')
           .style('opacity', 0.9)
-          .html(`<div> Valeur : ${d}</div>`);
+          .html(
+            `<div> <strong>${
+              d.name === 'Mercredi'
+                ? "Yeah! Mercredi! <br /> c'est le meetup JS Don't Panic!!!"
+                : d.name
+            }</strong><br />Valeur : ${d.value}</div>`
+          );
       })
       .on('mouseout', () => tooltip.style('display', 'none'));
 
     // Représenter les axes X, Y
-    svg.append('g')
+    svg
+      .append('g')
       .attr('transform', 'translate(0,' + this.props.height + ')')
       .attr('class', 'x-axis');
 
@@ -70,6 +77,6 @@ export default class Reusable extends Component {
   }
 
   render() {
-    return <h3>Barchart</h3>;
+    return <h3>{this.props.title}</h3>;
   }
 }
