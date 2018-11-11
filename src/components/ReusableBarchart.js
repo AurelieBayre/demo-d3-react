@@ -34,7 +34,7 @@ export default class Reusable extends Component {
       .attr('width', this.props.width + 30)
       .attr('height', this.props.height + 40)
       .append('g')
-      .attr('transform', 'translate(20,10)');
+      .attr('transform', 'translate(30,10)');
 
     svg
       .selectAll('rect')

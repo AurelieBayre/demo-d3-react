@@ -33,10 +33,6 @@ class App extends Component {
     };
   }
 
-  // onRouteChanged() {
-  //   console.log('ROUTE CHANGED');
-  // }
-
   navigation(e) {
     const pages = this.state.pages;
     const newPages = arrowNavigator(e, pages);
@@ -54,19 +50,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <Row>
-              <Col>
-                <h1>Meetup JS Don't Panic</h1>
-                <p>14 novembre 2018</p>
-              </Col>
-              <Col xs="3">
-                <Contact />
-              </Col>
-            </Row>
-          </header>
           <Container>
-
+          <header className="App-header">  
+            <Contact />
+          </header>
           <Route exact path="/" render={()=><Home pages={this.state.pages}/>} />
           <Route exact path="/info" render={()=><Info pages={this.state.pages}/>} />
           <Route exact path="/svg" render={()=><Svg pages={this.state.pages}/>} />
@@ -75,7 +62,6 @@ class App extends Component {
           <Route exact path="/barchart" render={()=><GenericBarchart pages={this.state.pages}/>} />
           <Route exact path="/piechart" render={()=><PieChartSpace pages={this.state.pages}/>} />
           <Route exact path="/dashboard" render={()=><Dashboard pages={this.state.pages}/>} />
-          <div id="tooltip" className="tooltip" />
           </Container>
         </div>
       </Router>

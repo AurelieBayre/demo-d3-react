@@ -1,22 +1,24 @@
 import React, {Component} from 'react';
-import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
+import {Container} from 'reactstrap';
+
+import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
 
 export default class Intro extends Component {
-  
   render() {
     const pages = this.props.pages;
-    const newPage = getNewPageInfo(pages)
-    const redirectToNewPage = toNewPage("",newPage)
-    
-    return redirectToNewPage ? redirectToNewPage : (
-      <div>
-      <h1>D3js:</h1>
-      <h2>
-        Quelques notions à connaître pour débuter + des pistes pour une
-        intégration avec React
-      </h2>
-      <p>durée: 20min</p>
-    </div>
-  );
-}
+    const newPage = getNewPageInfo(pages);
+    const redirectToNewPage = toNewPage('', newPage);
+
+    return redirectToNewPage ? (
+      redirectToNewPage
+    ) : (
+      <Container>
+        <h1>Meetup JS Don't Panic</h1>
+        <p>14 novembre 2018</p>
+        <h2>D3js</h2>
+        <p><strong>Quelques notions à connaître pour débuter</strong></p>
+        <p>Durée: 20min</p>
+      </Container>
+    );
+  }
 }

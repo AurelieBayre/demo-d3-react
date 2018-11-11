@@ -33,11 +33,6 @@ export default class Svg extends Component {
   }
 
   componentDidMount() {
-    // document.addEventListener('keydown', e => {
-    //   const newPage = this.onArrowRightOrLeft(e, 'toInfo', 'toSvg2');
-    //   this.setState(newPage);
-    // });
-
     this.interval = setInterval(() => {
       const newArray = this.changeData();
       this.setState({data: newArray});
@@ -59,7 +54,7 @@ export default class Svg extends Component {
   
       return redirectToNewPage ? redirectToNewPage : (
       <div onKeyDown={e => this.onArrowRightOrLeft(e)} tabIndex="0">
-        <h1>Devinette : pourquoi obtient-on cela? </h1>
+        <h2>Devinette : pourquoi obtient-on cela? </h2>
         <svg width="700" height="300">
           {this.state.data.map((d, i) => (
             <rect

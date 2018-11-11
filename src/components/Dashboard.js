@@ -32,7 +32,6 @@ export default class Dashboard extends Component {
 
     return redirectToNewPage ? redirectToNewPage : (
       <Container>
-        <h1>Premier Dashboard!</h1>
         <Row>
           <h2>Motivation : </h2>
         </Row>
@@ -85,6 +84,7 @@ export default class Dashboard extends Component {
             </div>
           </Col>
         </Row>
+        <div id="tooltip" className="tooltip" />
       </Container>
     );
   }

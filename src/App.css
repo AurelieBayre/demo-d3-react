@@ -36,6 +36,10 @@ body {
   color: #61dafb;
 }
 
+ul {
+  list-style-type: none;
+}
+
 #example {
   margin-top: 2vh;
 }

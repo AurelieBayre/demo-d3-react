@@ -21,11 +21,7 @@ export default class Svg2 extends Svg {
     const redirectToNewPage = toNewPage("svg2", newPage)
 
     return redirectToNewPage ? redirectToNewPage : (
-      <div
-        // onKeyDown={e => this.setState(arrowNavigator(e, 'toSvg', 'toEchelle'))}
-        // tabIndex="0"
-      >
-        <h1>Compter la hauteur à partir du bas</h1>
+      <div>
         <h2>hauteur du SVG - hauteur de la barre</h2>
         <svg width="700" height="300">
           {this.state.data.map((d, i) => (
