@@ -5,6 +5,7 @@ import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
 
 import Reusable from './ReusableBarchart';
 import Pie from './Pie';
+import Doughnut from './Doughnut'
 
 export default class Dashboard extends Component {
   state = {
@@ -52,7 +53,7 @@ export default class Dashboard extends Component {
         <Row>
           <Col>
             <div id={`barchart-${this.state.motivation.id}`}>
-              <Reusable
+              <Reusable className="motivation-barchart"
                 id={this.state.motivation.id}
                 data={this.state.motivation.data}
                 width={400}
@@ -62,8 +63,8 @@ export default class Dashboard extends Component {
             </div>
           </Col>
           <Col>
-            <div id={`pie-${this.state.motivation.id}`}>
-              <Pie
+            <div id={`doughnut-${this.state.motivation.id}`}>
+              <Doughnut
                 id={this.state.motivation.id}
                 data={this.state.motivation.data}
                 width={200}

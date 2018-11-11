@@ -8,6 +8,6 @@ const rectangleYPosition = (svgHeight, rectangleHeight) => {
 
 const rectangleHeight = (gHeight, yValue) => {
   return gHeight - yValue;
-}
+};
 
 export {svgLength, rectangleYPosition, rectangleHeight};
