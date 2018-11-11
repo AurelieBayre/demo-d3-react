@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator'
-
+import {svgLength, rectangleYPostition} from '../modules/dimensionsCalculator'
 
 // Exemple juste avec react, sans D3:
 
@@ -21,7 +21,6 @@ export default class Svg extends Component {
     this.changeData = this.changeData.bind(this);
   }
 
-
   changeData() {
     return [...this.state.data].map(obj => {
       const randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -32,12 +31,25 @@ export default class Svg extends Component {
     });
   }
 
+  svgMargin() {
+    return 20;
+  }
+  svgWidth() {
+    return svgLength(600, this.svgMargin());
+  }
+
+  svgHeight() {
+    return svgLength(300, this.svgMargin());
+  }
+
   componentDidMount() {
     this.interval = setInterval(() => {
       const newArray = this.changeData();
       this.setState({data: newArray});
     }, 3000);
   }
+
+
   componentWillUnmount() {
     clearInterval(this.interval);
     document.removeEventListener('keydown', this.onArrowRightOrLeft);
@@ -55,7 +67,8 @@ export default class Svg extends Component {
       return redirectToNewPage ? redirectToNewPage : (
       <div onKeyDown={e => this.onArrowRightOrLeft(e)} tabIndex="0">
         <h2>Devinette : pourquoi obtient-on cela? </h2>
-        <svg width="700" height="300">
+        <svg width={this.svgWidth()} height={this.svgHeight()}>
+          <g transform={`translate(${this.svgMargin()},${this.svgMargin()})`}>
           {this.state.data.map((d, i) => (
             <rect
               key={i}
@@ -67,6 +80,7 @@ export default class Svg extends Component {
               fill={d.color}
             />
           ))}
+          </g>
         </svg>
       </div>
     );
