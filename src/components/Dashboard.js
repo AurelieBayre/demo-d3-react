@@ -48,7 +48,7 @@ export default class Dashboard extends Component {
     ) : (
       <Container>
         <h2 className="text-center">
-          Motivation selon les jour de la semaine :
+          Motivation selon les jours de la semaine :
         </h2>
         <Row>
           <Col className="motivation">

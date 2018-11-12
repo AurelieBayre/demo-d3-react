@@ -16,8 +16,10 @@ export default class Intro extends Component {
         <h1>Meetup JS Don't Panic</h1>
         <p>14 novembre 2018</p>
         <h2>D3js</h2>
-        <p><strong>Quelques notions à connaître pour débuter</strong></p>
+        <h3>Quelques notions à connaître pour débuter</h3>
         <p>Durée: 20min</p>
+        <br/>
+        <p>Note pour les visiteurs du futur : navigation au clavier, flèche gauche, flèche droite.</p> 
       </Container>
     );
   }

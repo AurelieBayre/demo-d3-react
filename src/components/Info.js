@@ -21,9 +21,6 @@ const Info = props => {
         <li>Il intéragit avec le DOM.</li>
         <li>Il calcule les proportions et les mises à l'échelle</li>
         <li>Il propose des fonctionnalités d'animation</li>
-        <li>
-          Son utilisation dépasse largement la pure création de graphiques
-        </li>
       </ul>
     </div>
   );
