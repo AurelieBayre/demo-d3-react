@@ -1,5 +1,5 @@
 const svgLength = (length, margin) => {
-  return length + margin;
+  return length + (margin * 2);
 };
 
 const rectangleYPosition = (svgHeight, rectangleHeight) => {
