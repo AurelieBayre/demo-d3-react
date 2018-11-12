@@ -72,21 +72,23 @@ export default class Svg extends Component {
     ) : (
       <div onKeyDown={e => this.onArrowRightOrLeft(e)} tabIndex="0">
         <h2>Devinette : pourquoi obtient-on cela? </h2>
-        <svg width={this.svgWidth()} height={this.svgHeight()}>
-          <g transform={`translate(${this.margin()},${this.margin()})`}>
-            {this.state.data.map((d, i) => (
-              <rect
-                key={i}
-                className="bar"
-                x={i * 55}
-                y={0}
-                width={50}
-                height={d.value * 20}
-                fill={d.color}
-              />
-            ))}
-          </g>
-        </svg>
+        <div className="svg-wrapper">
+          <svg width={this.svgWidth()} height={this.svgHeight()}>
+            <g transform={`translate(${this.margin()},${this.margin()})`}>
+              {this.state.data.map((d, i) => (
+                <rect
+                  key={i}
+                  className="bar"
+                  x={i * 55}
+                  y={0}
+                  width={50}
+                  height={d.value * 20}
+                  fill={d.color}
+                />
+              ))}
+            </g>
+          </svg>
+        </div>
       </div>
     );
   }

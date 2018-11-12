@@ -45,6 +45,12 @@ svg {
   background-color: white;
 }
 
+.svg-wrapper {
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+}
+
 .tooltip {
   font-size: 2em;
   opacity: 0;

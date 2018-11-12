@@ -63,23 +63,25 @@ export default class Scale extends Component {
         <h2>Les échelles</h2>
         <Row>
           <Col>
-            <svg width={svgWidth} height={svgHeight}>
-              <g transform={`translate(${margin},${margin})`}>
-                {data.map((d, i) => {
-                  return (
-                    <rect
-                      key={i}
-                      className="bar"
-                      x={x(i)}
-                      y={y(d.value)}
-                      height={rectangleHeight(height, y(d.value))}
-                      width={x.bandwidth()}
-                      fill={d.color}
-                    />
-                  );
-                })}
-              </g>
-            </svg>
+            <div className="svg-wrapper">
+              <svg width={svgWidth} height={svgHeight}>
+                <g transform={`translate(${margin},${margin})`}>
+                  {data.map((d, i) => {
+                    return (
+                      <rect
+                        key={i}
+                        className="bar"
+                        x={x(i)}
+                        y={y(d.value)}
+                        height={rectangleHeight(height, y(d.value))}
+                        width={x.bandwidth()}
+                        fill={d.color}
+                      />
+                    );
+                  })}
+                </g>
+              </svg>
+            </div>
           </Col>
           <Col xs="3">
             <form onSubmit={e => this.addData(e)}>
