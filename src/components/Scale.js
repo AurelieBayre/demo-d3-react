@@ -83,7 +83,6 @@ export default class Scale extends Component {
     x.domain(data.map((d, i) => i));
     y.domain([0, max(data, d => d.value)]);
 
-
     return redirectToNewPage ? (
       redirectToNewPage
     ) : (

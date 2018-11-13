@@ -17,6 +17,8 @@ export default class Reusable extends Component {
   drawChart() {
     const data = this.props.data;
     const id = `#barchart-${this.props.id}`;
+    const width = this.props.width;
+    const height = this.props.height;
 
     const tooltip = select('#tooltip');
 
@@ -31,8 +33,8 @@ export default class Reusable extends Component {
 
     const svg = select(id)
       .append('svg')
-      .attr('width', this.props.width + 30)
-      .attr('height', this.props.height + 40)
+      .attr('width', width + 30)
+      .attr('height', height + 40)
       .append('g')
       .attr('transform', 'translate(30,10)');
 
@@ -44,7 +46,7 @@ export default class Reusable extends Component {
       .attr('x', (d, i) => x(d.name))
       .attr('y', (d, i) => y(d.value))
       .attr('width', x.bandwidth())
-      .attr('height', (d, i) => this.props.height - y(d.value))
+      .attr('height', (d, i) => height - y(d.value))
       .attr('fill', this.props.color)
       .attr('class', 'rectangle')
       .on('mousemove', (d, i) => {
@@ -67,7 +69,7 @@ export default class Reusable extends Component {
     // Représenter les axes X, Y
     svg
       .append('g')
-      .attr('transform', 'translate(0,' + this.props.height + ')')
+      .attr('transform', 'translate(0,' + height + ')')
       .attr('class', 'x-axis');
 
     svg.append('g').attr('class', 'y-axis');

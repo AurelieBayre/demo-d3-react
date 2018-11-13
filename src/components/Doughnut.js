@@ -17,6 +17,8 @@ export default class Pie extends Component {
   drawDoughnutChart() {
     const data = this.props.data;
     const id = this.props.id;
+    const width = this.props.width;
+    const height = this.props.height;
 
     const myPie = pie().value(d => d.value);
 
@@ -35,14 +37,14 @@ export default class Pie extends Component {
 
     const svg = select(`#doughnut-${id}`)
       .append('svg')
-      .attr('width', this.props.width + 40)
-      .attr('height', this.props.height + 40);
+      .attr('width', width + 40)
+      .attr('height', height + 40);
 
     const g = svg
       .append('g')
       .attr(
         'transform',
-        `translate(${this.props.width / 2 + 20},${this.props.height / 2 + 20})`
+        `translate(${width / 2 + 20},${height / 2 + 20})`
       );
 
     const tooltip = select('#tooltip');
