@@ -28,7 +28,6 @@ class App extends Component {
         ['svg2', false],
         ['scale', false],
         ['barchart', false],
-        ['piechart', false],
         ['dashboard', false]
       ]
     };
@@ -87,13 +86,13 @@ class App extends Component {
             />
             <Route
               exact
-              path="/piechart"
-              render={() => <PieChartSpace pages={this.state.pages} />}
+              path="/dashboard"
+              render={() => <Dashboard pages={this.state.pages} />}
             />
             <Route
               exact
-              path="/dashboard"
-              render={() => <Dashboard pages={this.state.pages} />}
+              path="/piechart"
+              render={() => <PieChartSpace pages={this.state.pages} />}
             />
             <Route
               exact

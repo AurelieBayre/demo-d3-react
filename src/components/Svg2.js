@@ -16,15 +16,13 @@ export default class Svg2 extends Svg {
   }
 
   render() {
-    const pages = this.props.pages;
-    const newPage = getNewPageInfo(pages);
+    const newPage = getNewPageInfo(this.props.pages);
     const redirectToNewPage = toNewPage('svg2', newPage);
 
     return redirectToNewPage ? (
       redirectToNewPage
     ) : (
       <div>
-        <h2>hauteur du SVG - hauteur de la barre</h2>
         <div className="svg-wrapper">
           <svg width={this.svgWidth()} height={this.svgHeight()}>
             <g transform={`translate(${this.margin()},${this.margin()})`}>
@@ -42,6 +40,7 @@ export default class Svg2 extends Svg {
             </g>
           </svg>
         </div>
+        <h2>hauteur du SVG - hauteur de la barre</h2>
       </div>
     );
   }

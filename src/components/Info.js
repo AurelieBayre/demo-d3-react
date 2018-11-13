@@ -18,9 +18,7 @@ const Info = props => {
       </p>
       <ul>
         <li>D3 repose sur la techno SVG.</li>
-        <li>Il intéragit avec le DOM.</li>
-        <li>Il calcule les proportions et les mises à l'échelle</li>
-        <li>Il propose des fonctionnalités d'animation</li>
+        <li>Il est étroitement lié au DOM.</li>
       </ul>
     </div>
   );
