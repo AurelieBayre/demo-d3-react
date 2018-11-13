@@ -50,7 +50,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Container>
+          <Container fluid={true}>
             <header className="App-header">
               <Contact />
             </header>

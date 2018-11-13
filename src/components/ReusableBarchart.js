@@ -22,7 +22,7 @@ export default class Reusable extends Component {
     const height = this.props.height;
 
     const svgWidth = svgLength(width, 40);
-    const svgHeight = svgLength(width, 40);
+    const svgHeight = svgLength(height, 40);
 
     const tooltip = select('#tooltip');
 
