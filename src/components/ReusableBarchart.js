@@ -6,9 +6,10 @@ import {
   select,
   event,
   axisLeft,
-  axisBottom
+  axisBottom,
+  ticks
 } from 'd3';
-import { svgLength } from '../modules/dimensionsCalculator';
+import {svgLength} from '../modules/dimensionsCalculator';
 
 export default class Reusable extends Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ export default class Reusable extends Component {
     const height = this.props.height;
 
     const svgWidth = svgLength(width, 40);
-    const svgHeight = svgLength(height, 40);
+    const svgHeight = svgLength(height, 60);
 
     const tooltip = select('#tooltip');
 
@@ -40,7 +41,7 @@ export default class Reusable extends Component {
       .attr('width', svgWidth)
       .attr('height', svgHeight)
       .append('g')
-      .attr('transform', 'translate(20,20)');
+      .attr('transform', 'translate(40,20)');
 
     svg
       .selectAll('rect')
@@ -78,8 +79,21 @@ export default class Reusable extends Component {
 
     svg.append('g').attr('class', 'y-axis');
 
-    svg.select('.x-axis').call(axisBottom(x));
-    svg.select('.y-axis').call(axisLeft(y));
+    svg
+      .select('.x-axis')
+      .call(axisBottom(x))
+      .selectAll('text')
+      .style('text-anchor', 'end')
+      .style('font', '18px arial')
+      .attr('dx', '-.8em')
+      .attr('dy', '.15em')
+      .attr('transform', 'rotate(-45)');
+
+    svg
+      .select('.y-axis')
+      .call(axisLeft(y).ticks(5))
+      .selectAll('text')
+      .style('font', '18px arial');
   }
 
   render() {
