@@ -8,7 +8,7 @@ export default class Svg2 extends Svg {
     this.interval = setInterval(() => {
       const newArray = this.changeData();
       this.setState({data: newArray});
-    }, 3000);
+    }, 1000);
   }
 
   componentWillUnmount() {
