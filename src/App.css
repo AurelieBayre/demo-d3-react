@@ -28,9 +28,14 @@
   color: #61dafb;
 }
 
+.contact {
+  text-align: right;
+}
+
 .info {
   text-align:center;
 }
+
 .info ul {
   display:inline-block;
   text-align:left;
@@ -87,6 +92,14 @@ h2 {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-.left-side {
+.col-border {
   border-right: 3px solid #282c34;
+}
+
+.row-outro {
+  margin-top: 15%;
+}
+
+.left-side, .right-side {
+  display: inline-block !important;
 }

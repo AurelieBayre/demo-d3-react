@@ -6,8 +6,7 @@ import {
   select,
   event,
   axisLeft,
-  axisBottom,
-  ticks
+  axisBottom
 } from 'd3';
 import {svgLength} from '../modules/dimensionsCalculator';
 
