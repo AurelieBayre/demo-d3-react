@@ -34,7 +34,8 @@
 .info ul {
   display:inline-block;
   text-align:left;
-  margin-top: 2.5em;
+  margin-top: 2%;
+  font-size: 2em;
 }
 
 #example {
