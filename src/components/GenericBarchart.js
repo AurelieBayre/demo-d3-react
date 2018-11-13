@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Reusable from './ReusableBarchart';
 import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
+import { svgLength } from '../modules/dimensionsCalculator';
 
 export default class GenericBarchart extends Component {
   state = {
@@ -13,7 +14,7 @@ export default class GenericBarchart extends Component {
       {name: 'Samedi', value: 95},
       {name: 'Dimanche', value: 90}
     ],
-    width: 700,
+    width: 600,
     height: 300,
     color: 'purple',
     id: 'basic',

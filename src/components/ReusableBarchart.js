@@ -8,6 +8,7 @@ import {
   axisLeft,
   axisBottom
 } from 'd3';
+import { svgLength } from '../modules/dimensionsCalculator';
 
 export default class Reusable extends Component {
   componentDidMount() {
@@ -19,6 +20,9 @@ export default class Reusable extends Component {
     const id = `#barchart-${this.props.id}`;
     const width = this.props.width;
     const height = this.props.height;
+
+    const svgWidth = svgLength(width, 40);
+    const svgHeight = svgLength(width, 40);
 
     const tooltip = select('#tooltip');
 
@@ -33,10 +37,10 @@ export default class Reusable extends Component {
 
     const svg = select(id)
       .append('svg')
-      .attr('width', width + 30)
-      .attr('height', height + 40)
+      .attr('width', svgWidth)
+      .attr('height', svgHeight)
       .append('g')
-      .attr('transform', 'translate(30,10)');
+      .attr('transform', 'translate(20,20)');
 
     svg
       .selectAll('rect')
