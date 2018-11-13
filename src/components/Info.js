@@ -11,8 +11,7 @@ const Info = props => {
   ) : (
     <div className="info">
       <h2>D3 = Data Driven Document</h2>
-
-      <p>
+      <p className="main-text">
         Créateurs : Mike Bostock, Jeffrey Heer, Vadim Ogievetsky <br />
         Première version : 2011
       </p>

@@ -13,10 +13,8 @@ export default class Intro extends Component {
       redirectToNewPage
     ) : (
       <Container className="fluid">
-        <h1>Meetup JS Don't Panic</h1>
-        <p>14 novembre 2018</p>
-        <h2>D3js</h2>
-        <h3>Quelques notions à connaître pour débuter</h3>
+        <h1>D3.js</h1>
+        <h2>Quelques notions à connaître pour débuter</h2>
        </Container>
     );
   }

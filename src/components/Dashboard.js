@@ -38,6 +38,17 @@ export default class Dashboard extends Component {
     }
   };
 
+  componentDidMount () {
+   
+    this.header = document.getElementsByTagName('header')[0];
+    this.headerDisplay = this.header.style.display;
+    this.header.style.display = 'none';
+  }
+ 
+componentWillUnmount () {
+  this.header.style.display = this.headerDisplay;
+ }
+
   render() {
     const pages = this.props.pages;
     const newPage = getNewPageInfo(pages);
@@ -57,35 +68,35 @@ export default class Dashboard extends Component {
                 id={this.state.motivation.id}
                 data={this.state.motivation.data}
                 width={400}
-                height={200}
+                height={180}
                 color={this.state.motivation.color}
               />
             </div>
           </Col>
-          <Col>
+          <Col className="motivation">
             <div id={`doughnut-${this.state.motivation.id}`}>
               <Doughnut
                 id={this.state.motivation.id}
                 data={this.state.motivation.data}
-                width={200}
-                height={200}
+                width={180}
+                height={180}
               />
             </div>
           </Col>
         </Row>
         <h2>Temps passé par activité : </h2>
-        <Row className="activity">
-          <Col>
+        <Row>
+          <Col className="activity">
             <div id={`pie-${this.state.activity.id}`}>
               <Pie
                 id={this.state.activity.id}
                 data={this.state.activity.data}
-                width={200}
-                height={200}
+                width={180}
+                height={180}
               />
             </div>
           </Col>
-          <Col>
+          <Col className="activity">
             <div id={`barchart-${this.state.activity.id}`}>
               <Reusable
                 id={this.state.activity.id}
@@ -93,7 +104,7 @@ export default class Dashboard extends Component {
                   (a, b) => b.value - a.value
                 )}
                 width={400}
-                height={200}
+                height={180}
                 color={this.state.activity.color}
               />
             </div>

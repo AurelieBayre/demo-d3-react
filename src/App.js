@@ -14,6 +14,7 @@ import GenericBarchart from './components/GenericBarchart';
 import PieChartSpace from './components/PieChartSpace';
 import Dashboard from './components/Dashboard';
 import DoughnutSpace from './components/DoughnutSpace';
+import Outro from './components/Outro';
 
 import './App.css';
 
@@ -28,7 +29,8 @@ class App extends Component {
         ['svg2', false],
         ['scale', false],
         ['barchart', false],
-        ['dashboard', false]
+        ['dashboard', false],
+        ['outro', false]
       ]
     };
   }
@@ -89,6 +91,13 @@ class App extends Component {
               path="/dashboard"
               render={() => <Dashboard pages={this.state.pages} />}
             />
+             <Route
+              exact
+              path="/outro"
+              render={() => <Outro pages={this.state.pages} />}
+            />
+            {/* The routes below are acessible via the url but
+            but I haven't included them in the arrow-navigation system. */}
             <Route
               exact
               path="/piechart"

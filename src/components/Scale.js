@@ -12,8 +12,8 @@ export default class Scale extends Component {
     this.state = {
       data: [
         {value: 12, color: '#9400D3'},
-        {value: 5, color: '#4B0082'},
-        {value: 6, color: '#0000FF'},
+        {value: 5, color: '#0000FF'},
+        {value: 6, color: '#00c5ff'},
         {value: 6, color: '#00FF00'},
         {value: 9, color: '#FFFF00'},
         {value: 10, color: '#FF7F00'},
@@ -24,20 +24,20 @@ export default class Scale extends Component {
     };
   }
 
-  random(min, max){
+  random(min, max) {
     return Math.floor(Math.random() * max) + min;
   }
 
   getDataCapValue(arr) {
     let maxValue = 0;
-    arr.forEach(i => maxValue = maxValue > i.value ? maxValue : i.value);
+    arr.forEach(i => (maxValue = maxValue > i.value ? maxValue : i.value));
     return maxValue;
   }
 
   changeData = () => {
     let arr = [...this.state.data];
     let maxValue = this.getDataCapValue(arr);
-    let dataIdx = this.random(0, arr.length -1);
+    let dataIdx = this.random(0, arr.length - 1);
     arr[dataIdx].value += this.random(maxValue / 10, maxValue / 3);
     return arr;
   };
@@ -45,7 +45,7 @@ export default class Scale extends Component {
   addData(e) {
     e.preventDefault();
     let maxValue = this.getDataCapValue(this.state.data);
-    const randomValue = this.random(maxValue / 3, maxValue);;
+    const randomValue = this.random(maxValue / 3, maxValue);
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
     const newDataPoint = {
       value: randomValue,
@@ -61,6 +61,10 @@ export default class Scale extends Component {
     }, 400);
   }
 
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   render() {
     const pages = this.props.pages;
     const newPage = getNewPageInfo(pages);
@@ -71,7 +75,7 @@ export default class Scale extends Component {
     const margin = 20;
     const svgWidth = svgLength(width, margin);
     const svgHeight = svgLength(height, margin);
-    
+
     // Définition des axes avec calcul des proportions
     const x = scaleBand()
       .rangeRound([0, width])
@@ -88,7 +92,7 @@ export default class Scale extends Component {
     ) : (
       <div>
         <Row>
-          <Col>
+          <Col xs="8">
             <div className="svg-wrapper">
               <svg width={svgWidth} height={svgHeight}>
                 <g transform={`translate(${margin},${margin})`}>
@@ -110,15 +114,14 @@ export default class Scale extends Component {
             </div>
           </Col>
           <Col xs="3">
+            <h2>Les échelles</h2>
             <form onSubmit={e => this.addData(e)}>
               <div>
-                <label>Ajouter une valeur</label>
               </div>
-              <button type="submit">Ajout</button>
+              <button type="submit" className="enormous-button">Ajouter une valeur</button>
             </form>
           </Col>
         </Row>
-        <h2>Les échelles</h2>
       </div>
     );
   }

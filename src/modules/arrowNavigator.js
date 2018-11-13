@@ -37,7 +37,7 @@ const arrowNavigator = (e, arr) => {
   const current = arr.findIndex(currentIndex);
   const previousAndNextIndex = colateralIndexes(current, arr.length - 1);
 
-  if (e.keyCode === 39) {
+  if (e.keyCode === 39 || e.keyCode === 34) {
     const newArr = arr.map((subArr, i) =>
       i === current
         ? [subArr[0], false]
@@ -47,7 +47,7 @@ const arrowNavigator = (e, arr) => {
     );
     return newArr;
   }
-  if (e.keyCode === 37) {
+  if (e.keyCode === 37 || e.keyCode === 33) {
     const newArr = arr.map((subArr, i) =>
       i === current
         ? [subArr[0], false]

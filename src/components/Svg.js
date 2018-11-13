@@ -9,8 +9,8 @@ export default class Svg extends Component {
     this.state = {
       data: [
         {value: 12, color: '#9400D3'},
-        {value: 5, color: '#4B0082'},
-        {value: 6, color: '#0000FF'},
+        {value: 5, color: '#0000FF'},
+        {value: 6, color: '#00c5ff'},
         {value: 6, color: '#00FF00'},
         {value: 9, color: '#FFFF00'},
         {value: 10, color: '#FF7F00'},
@@ -87,9 +87,5 @@ export default class Svg extends Component {
 
   componentWillUnmount() {
     clearInterval(this.interval);
-    this.setState({
-      toInfo: false,
-      toSvg2: false
-    });
   }
 }
