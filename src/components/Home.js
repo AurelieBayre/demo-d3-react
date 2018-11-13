@@ -13,9 +13,19 @@ export default class Intro extends Component {
       redirectToNewPage
     ) : (
       <Container className="fluid">
-        <h1>D3.js</h1>
-        <h2>Quelques notions à connaître pour débuter</h2>
-       </Container>
+        <h1>Intro à D3.js</h1>
+        <div className="info">
+          <h2>D3 = Data Driven Document</h2>
+          {/* <p className="main-text">
+            Créateurs : Mike Bostock, Jeffrey Heer, Vadim Ogievetsky <br />
+            Première version : 2011
+          </p> */}
+          <ul>
+            <li>D3 repose sur la techno SVG.</li>
+            <li>Il est étroitement lié au DOM.</li>
+          </ul>
+        </div>
+      </Container>
     );
   }
 }

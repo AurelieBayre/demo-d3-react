@@ -24,7 +24,6 @@ class App extends Component {
     this.state = {
       pages: [
         ['', true],
-        ['info', false],
         ['svg', false],
         ['svg2', false],
         ['scale', false],
@@ -63,11 +62,6 @@ class App extends Component {
             />
             <Route
               exact
-              path="/info"
-              render={() => <Info pages={this.state.pages} />}
-            />
-            <Route
-              exact
               path="/svg"
               render={() => <Svg pages={this.state.pages} />}
             />
@@ -98,6 +92,11 @@ class App extends Component {
             />
             {/* The routes below are acessible via the url but
             but I haven't included them in the arrow-navigation system. */}
+            <Route
+              exact
+              path="/info"
+              render={() => <Info pages={this.state.pages} />}
+            />
             <Route
               exact
               path="/piechart"
