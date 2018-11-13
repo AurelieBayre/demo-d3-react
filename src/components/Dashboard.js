@@ -38,16 +38,15 @@ export default class Dashboard extends Component {
     }
   };
 
-  componentDidMount () {
-   
+  componentDidMount() {
     this.header = document.getElementsByTagName('header')[0];
     this.headerDisplay = this.header.style.display;
     this.header.style.display = 'none';
   }
- 
-componentWillUnmount () {
-  this.header.style.display = this.headerDisplay;
- }
+
+  componentWillUnmount() {
+    this.header.style.display = this.headerDisplay;
+  }
 
   render() {
     const pages = this.props.pages;
@@ -58,11 +57,11 @@ componentWillUnmount () {
       redirectToNewPage
     ) : (
       <Container>
-        <h2 className="text-center">
-          Motivation selon les jours de la semaine :
-        </h2>
         <Row>
-          <Col className="motivation">
+          <Col>
+            <h3 className="text-center">
+              Motivation selon les jours de la semaine :
+            </h3>
             <div id={`barchart-${this.state.motivation.id}`}>
               <Reusable
                 id={this.state.motivation.id}
@@ -72,8 +71,6 @@ componentWillUnmount () {
                 color={this.state.motivation.color}
               />
             </div>
-          </Col>
-          <Col className="motivation">
             <div id={`doughnut-${this.state.motivation.id}`}>
               <Doughnut
                 id={this.state.motivation.id}
@@ -83,20 +80,8 @@ componentWillUnmount () {
               />
             </div>
           </Col>
-        </Row>
-        <h2>Temps passé par activité : </h2>
-        <Row>
-          <Col className="activity">
-            <div id={`pie-${this.state.activity.id}`}>
-              <Pie
-                id={this.state.activity.id}
-                data={this.state.activity.data}
-                width={180}
-                height={180}
-              />
-            </div>
-          </Col>
-          <Col className="activity">
+          <Col>
+            <h3>Temps passé par activité : </h3>
             <div id={`barchart-${this.state.activity.id}`}>
               <Reusable
                 id={this.state.activity.id}
@@ -106,6 +91,14 @@ componentWillUnmount () {
                 width={400}
                 height={180}
                 color={this.state.activity.color}
+              />
+            </div>
+            <div id={`pie-${this.state.activity.id}`}>
+              <Pie
+                id={this.state.activity.id}
+                data={this.state.activity.data}
+                width={180}
+                height={180}
               />
             </div>
           </Col>
