@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Reusable from './ReusableBarchart';
 import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
-import { svgLength } from '../modules/dimensionsCalculator';
 
 export default class GenericBarchart extends Component {
   state = {
