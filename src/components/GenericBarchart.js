@@ -8,13 +8,13 @@ export default class GenericBarchart extends Component {
       {name: 'Lundi', value: 65},
       {name: 'Mardi', value: 60},
       {name: 'Mercredi', value: 100},
-      {name: 'Jeudi', value: 85},
-      {name: 'Vendredi', value: 70},
-      {name: 'Samedi', value: 95},
+      {name: 'Jeudi', value: 63},
+      {name: 'Vendredi', value: 75},
+      {name: 'Samedi', value: 80},
       {name: 'Dimanche', value: 90}
     ],
-    width: 600,
-    height: 300,
+    width: 560,
+    height: 250,
     color: 'purple',
     id: 'basic',
     title: "Motivation au cours de la semaine"
@@ -35,8 +35,9 @@ export default class GenericBarchart extends Component {
           width={this.state.width}
           height={this.state.height}
           color={this.state.color}
-          title={this.state.title}
+          // title={this.state.title}
         />
+        <h3>{this.state.title}</h3>
         <div id="tooltip" className="tooltip" />
       </div>
     );
