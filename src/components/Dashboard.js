@@ -57,7 +57,7 @@ export default class Dashboard extends Component {
       redirectToNewPage
     ) : (
       <Container>
-        <Row>
+        <Row className="dashboard">
           <Col>
             <h3 className="text-center">
               Motivation selon les jours de la semaine :
