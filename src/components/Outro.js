@@ -45,24 +45,60 @@ export default class Outro extends Component {
             <h2>Ressources</h2>
             <p>
               <h3>Les incontournables :</h3>
-              <a href="https://d3js.org/">Le site D3.js</a>
+              <a
+                href="https://d3js.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Le site D3.js
+              </a>
               <br />
-              <a href="https://bost.ocks.org/mike/">Le blog du boss</a>
+              <a
+                href="https://bost.ocks.org/mike/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Le blog du boss
+              </a>
               <br />
               <h3>Des exemples animés :</h3>
-              <a href="http://ghv.artzub.com/#repo=demo-d3-react&climit=100&user=aureliebayre">
+              <a
+                href="http://ghv.artzub.com/#repo=demo-d3-react&climit=100&user=aureliebayre"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Stats github
               </a>
               <br />
-              <a href="http://d3.artzub.com/wbca/">Transactions World Bank</a>
+              <a
+                href="http://d3.artzub.com/wbca/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Transactions World Bank
+              </a>
               <h3>Les notions : </h3>
-              <a href="https://d3indepth.com/scales/">Les échelles</a>
+              <a
+                href="https://d3indepth.com/scales/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Les échelles
+              </a>
               <br />
-              <a href="https://www.sitepoint.com/a-beginners-guide-to-data-binding-in-d3-js/">
+              <a
+                href="https://www.sitepoint.com/a-beginners-guide-to-data-binding-in-d3-js/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Le data binding
               </a>
               <br />
-              <a href="https://www.smashingmagazine.com/2014/11/styling-and-animating-svgs-with-css/">
+              <a
+                href="https://www.smashingmagazine.com/2014/11/styling-and-animating-svgs-with-css/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Les SVG
               </a>
             </p>
