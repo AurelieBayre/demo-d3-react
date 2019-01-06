@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 
 import {getNewPageInfo, toNewPage} from '../modules/arrowNavigator';
+import {responsiveWidth} from '../modules/dimensionsCalculator';
 
 import Reusable from './ReusableBarchart';
 import Pie from './Pie';
@@ -53,7 +54,8 @@ export default class Dashboard extends Component {
     const newPage = getNewPageInfo(pages);
     const redirectToNewPage = toNewPage('dashboard', newPage);
     const mobileWidth = window.screen.width - 80
-    const responsiveWidth = width => width > mobileWidth ? mobileWidth : width;
+    const width = responsiveWidth(400, mobileWidth);
+    const height = 180;
 
     return redirectToNewPage ? (
       redirectToNewPage
@@ -62,14 +64,14 @@ export default class Dashboard extends Component {
         <Row className="dashboard">
           <Col>
             <h3 className="text-center">
-              Motivation selon les jours de la semaine :
+              Motivation selon les jours de la semaine
             </h3>
             <div id={`barchart-${this.state.motivation.id}`}>
               <Reusable
                 id={this.state.motivation.id}
                 data={this.state.motivation.data}
-                width={responsiveWidth(400)}
-                height={180}
+                width={width}
+                height={height}
                 color={this.state.motivation.color}
               />
             </div>
@@ -77,21 +79,21 @@ export default class Dashboard extends Component {
               <Doughnut
                 id={this.state.motivation.id}
                 data={this.state.motivation.data}
-                width={180}
-                height={180}
+                width={width}
+                height={height}
               />
             </div>
           </Col>
           <Col>
-            <h3>Temps passé par activité : </h3>
+            <h3>Temps passé par activité </h3>
             <div id={`barchart-${this.state.activity.id}`}>
               <Reusable
                 id={this.state.activity.id}
                 data={this.state.activity.data.sort(
                   (a, b) => b.value - a.value
                 )}
-                width={responsiveWidth(400)}
-                height={180}
+                width={width}
+                height={height}
                 color={this.state.activity.color}
               />
             </div>
@@ -99,8 +101,8 @@ export default class Dashboard extends Component {
               <Pie
                 id={this.state.activity.id}
                 data={this.state.activity.data}
-                width={180}
-                height={180}
+                width={width}
+                height={height}
               />
             </div>
           </Col>
