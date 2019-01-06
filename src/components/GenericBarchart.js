@@ -21,6 +21,7 @@ export default class GenericBarchart extends Component {
   };
 
   render() {
+    const responsiveWidth = window.screen.width - 80;
     const pages = this.props.pages;
     const newPage = getNewPageInfo(pages);
     const redirectToNewPage = toNewPage('barchart', newPage);
@@ -32,7 +33,7 @@ export default class GenericBarchart extends Component {
         <Reusable
           id={this.state.id}
           data={this.state.data}
-          width={this.state.width}
+          width={this.state.width > responsiveWidth ? responsiveWidth : this.state.width}
           height={this.state.height}
           color={this.state.color}
           // title={this.state.title}

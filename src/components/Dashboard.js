@@ -52,6 +52,8 @@ export default class Dashboard extends Component {
     const pages = this.props.pages;
     const newPage = getNewPageInfo(pages);
     const redirectToNewPage = toNewPage('dashboard', newPage);
+    const mobileWidth = window.screen.width - 80
+    const responsiveWidth = width => width > mobileWidth ? mobileWidth : width;
 
     return redirectToNewPage ? (
       redirectToNewPage
@@ -66,7 +68,7 @@ export default class Dashboard extends Component {
               <Reusable
                 id={this.state.motivation.id}
                 data={this.state.motivation.data}
-                width={400}
+                width={responsiveWidth(400)}
                 height={180}
                 color={this.state.motivation.color}
               />
@@ -88,7 +90,7 @@ export default class Dashboard extends Component {
                 data={this.state.activity.data.sort(
                   (a, b) => b.value - a.value
                 )}
-                width={400}
+                width={responsiveWidth(400)}
                 height={180}
                 color={this.state.activity.color}
               />
